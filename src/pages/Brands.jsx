@@ -1,13 +1,15 @@
 import React from "react";
 import TableBrands from "../components/TableBrands";
+import Button from "react-bootstrap/Button";
 
 function Brands() {
   return (
     <>
-      <div className="text-center container">
-        <h1>Brands</h1>
-        <TableBrands />
-      </div>
+      <h1>Brands</h1>
+      <Button variant="primary" className="float-end adminButton">
+        New Brand
+      </Button>
+      <TableBrands />
     </>
   );
 }
