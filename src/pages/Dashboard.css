@@ -1,0 +1,46 @@
+.card-header-text {
+  font-size: 1rem;
+  color: darkgray;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-icons {
+  width: 25px;
+  height: 25px;
+}
+
+.card-quantity-numbers {
+  font-size: 1.8rem;
+}
+
+.card-reference-text {
+  font-size: 1rem;
+}
+
+.card-reference-text-grey {
+  font-size: 0.7rem;
+  color: grey;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: grey;
+}

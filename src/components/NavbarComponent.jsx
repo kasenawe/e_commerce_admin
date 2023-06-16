@@ -8,10 +8,10 @@ function NavbarComponent() {
     <>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand to="/">
             <Sidemenu />
 
-            <small>Admin</small>
+            <small className="mx-3">Admin</small>
           </Navbar.Brand>
         </Container>
       </Navbar>

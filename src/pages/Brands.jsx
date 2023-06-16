@@ -4,8 +4,10 @@ import TableBrands from "../components/TableBrands";
 function Brands() {
   return (
     <>
-      <h1>Brands</h1>
-      <TableBrands />
+      <div className="text-center container">
+        <h1>Brands</h1>
+        <TableBrands />
+      </div>
     </>
   );
 }

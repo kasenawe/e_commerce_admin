@@ -2,6 +2,8 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import "./Sidemenu.css"; // Importa el archivo CSS
+import ListGroup from "react-bootstrap/ListGroup";
+import { Link } from "react-router-dom";
 
 function Sidemenu() {
   const [show, setShow] = useState(false);
@@ -14,24 +16,59 @@ function Sidemenu() {
       <Button variant="primary" onClick={handleShow}>
         Manage
       </Button>
-
       <Offcanvas show={show} onHide={handleClose} placement="start">
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Management</Offcanvas.Title>
+          <Offcanvas.Title>
+            <h5>Management</h5>
+          </Offcanvas.Title>
         </Offcanvas.Header>
+
         <Offcanvas.Body>
-          <ul>
-            <li>Dashboard</li>
-            <li>Brands</li>
-
-            <li>Collections</li>
-
-            <li>Colors</li>
-            <li>Products</li>
-            <li>Orders</li>
-            <li>Users</li>
-            <li>Admins</li>
-          </ul>
+          <ListGroup as={"ul"} className="border border-0 bg-transparent ms-4">
+            <Link to={"/"}>Dashboard</Link>{" "}
+            <ListGroup.Item
+              as={"li"}
+              className="border border-0 bg-transparent"
+            >
+              <Link to={"/brands"}>Brands</Link>{" "}
+            </ListGroup.Item>
+            <ListGroup.Item
+              as={"li"}
+              className="border border-0 bg-transparent"
+            >
+              <Link to={"/collections"}>Collections</Link>{" "}
+            </ListGroup.Item>
+            <ListGroup.Item
+              as={"li"}
+              className="border border-0 bg-transparent"
+            >
+              <Link to={"/colors"}>Colors</Link>{" "}
+            </ListGroup.Item>
+            <ListGroup.Item
+              as={"li"}
+              className="border border-0 bg-transparent"
+            >
+              <Link to={"/products"}>Products</Link>{" "}
+            </ListGroup.Item>
+            <ListGroup.Item
+              as={"li"}
+              className="border border-0 bg-transparent"
+            >
+              <Link to={"/orders"}>Orders</Link>{" "}
+            </ListGroup.Item>
+            <ListGroup.Item
+              as={"li"}
+              className="border border-0 bg-transparent"
+            >
+              <Link to={"/users"}>Users</Link>{" "}
+            </ListGroup.Item>
+            <ListGroup.Item
+              as={"li"}
+              className="border border-0 bg-transparent"
+            >
+              <Link to={"/admins"}>Admins</Link>{" "}
+            </ListGroup.Item>
+          </ListGroup>
         </Offcanvas.Body>
       </Offcanvas>
     </>

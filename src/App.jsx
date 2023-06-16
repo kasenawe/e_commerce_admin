@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import NavbarComponent from "./components/NavbarComponent";
@@ -16,8 +15,6 @@ import Users from "./pages/Users";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="app-container">
       <NavbarComponent />

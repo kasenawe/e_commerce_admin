@@ -2,7 +2,7 @@ import React from "react";
 
 function TableBrands() {
   return (
-    <table className="table table-dark table-hover">
+    <table className="border table table-dark table-hover">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -26,8 +26,9 @@ function TableBrands() {
         </tr>
         <tr>
           <th scope="row">3</th>
-          <td colSpan="2">Larry the Bird</td>
-          <td>@twitter</td>
+          <td>Thornton</td>
+          <td>Philips</td>
+          <td>@tweitter</td>
         </tr>
       </tbody>
     </table>

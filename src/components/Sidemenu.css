@@ -26,3 +26,12 @@
   background-color: #1a1a1a; /* Cambia "your-color" al color deseado */
   color: aliceblue;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+h5 {
+  color: grey;
+}
