@@ -1,5 +1,5 @@
 .app-container {
-  position: absolute;
+  position: relative;
   min-height: 100vh;
   width: 100vw;
 }

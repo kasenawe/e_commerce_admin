@@ -35,3 +35,7 @@ ul {
 h5 {
   color: grey;
 }
+
+li {
+  padding: 0px;
+}

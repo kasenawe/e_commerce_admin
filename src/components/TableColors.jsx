@@ -2,7 +2,7 @@ import React from "react";
 
 function TableColors() {
   return (
-    <table className="table table-dark table-hover">
+    <table className="border table table-dark table-hover text-center">
       <thead>
         <tr>
           <th scope="col">#</th>
