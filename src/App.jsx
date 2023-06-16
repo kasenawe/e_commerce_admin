@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <NavbarComponent />
-      <div className="container">
+      <div className="container mb-5">
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/admins" element={<Admins />} />
@@ -30,7 +30,7 @@ function App() {
           <Route path="/users" element={<Users />} />
         </Routes>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

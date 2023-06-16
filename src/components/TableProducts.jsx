@@ -2,7 +2,7 @@ import React from "react";
 
 function TableProducts() {
   return (
-    <table className="border table table-dark table-hover text-center">
+    <table className="border table table-dark table-hover text-center mt-3">
       <thead>
         <tr>
           <th scope="col">#</th>
