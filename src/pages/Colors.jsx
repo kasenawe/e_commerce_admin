@@ -1,7 +1,13 @@
 import React from "react";
+import TableColors from "../components/TableColors";
 
 function Colors() {
-  return <></>;
+  return (
+    <>
+      <h1>Colors</h1>
+      <TableColors />
+    </>
+  );
 }
 
 export default Colors;

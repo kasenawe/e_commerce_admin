@@ -1,6 +1,6 @@
 import React from "react";
 
-function TableSeries() {
+function TableUsers() {
   return (
     <table className="table table-dark table-hover">
       <thead>
@@ -33,4 +33,4 @@ function TableSeries() {
     </table>
   );
 }
-export default TableSeries;
+export default TableUsers;

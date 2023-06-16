@@ -15,7 +15,7 @@
 
   --color-main: #021d35;
   --color-white: #fdedbd;
-  --color-black: #404040;
+  --color-black: #1d1c1ce6;
 }
 @font-face {
   font-family: Pinyon;
@@ -25,50 +25,14 @@
   font-family: Quicksand;
   src: url(src/assets/fonts/Quicksand.ttf);
 }
+@font-face {
+  font-family: Cormorant;
+  src: url(src/assets/fonts/cgB.ttf);
+}
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+
   min-width: 320px;
   min-height: 100vh;
-}
-button {
-  font-size: 18px;
-  color: var(--color-white);
-  font-family: Quicksand;
-  font-weight: 800;
-  cursor: pointer;
-  position: relative;
-  border: none;
-  background: none;
-  text-transform: uppercase;
-  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition-duration: 400ms;
-  transition-property: color;
-}
-
-button:focus,
-button:hover {
-  color: var(--color-white);
-}
-
-button:focus:after,
-button:hover:after {
-  width: 100%;
-  left: 0%;
-}
-
-button:after {
-  content: "";
-  pointer-events: none;
-  bottom: -2px;
-  left: 50%;
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  background-color: var(--color-white);
-  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition-duration: 400ms;
-  transition-property: width, left;
 }

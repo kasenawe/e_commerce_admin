@@ -24,12 +24,12 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/admins" element={<Admins />} />
         <Route path="/products" element={<Products />} />
         <Route path="/series" element={<Series />} />
         <Route path="/brands" element={<Brands />} />
         <Route path="/colors" element={<Colors />} />
         <Route path="/orders" element={<Orders />} />
-        <Route path="/admins" element={<Admins />} />
         <Route path="/users" element={<Users />} />
       </Routes>
       <Footer />
