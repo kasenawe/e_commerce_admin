@@ -36,7 +36,7 @@ function Sidemenu() {
               as={"li"}
               className="border border-0 bg-transparent"
             >
-              <Link to={"/collections"}>Collections</Link>{" "}
+              <Link to={"/series"}>Series</Link>{" "}
             </ListGroup.Item>
             <ListGroup.Item
               as={"li"}
