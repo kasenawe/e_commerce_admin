@@ -3,10 +3,10 @@ import TableOrders from "../components/TableOrders";
 
 function Orders() {
   return (
-    <>
-      <h1>Orders</h1>
+    <div className="text-center">
+      <h1 className="mt-2">Orders</h1>
       <TableOrders />
-    </>
+    </div>
   );
 }
 

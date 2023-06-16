@@ -4,13 +4,13 @@ import Button from "react-bootstrap/Button";
 
 function Series() {
   return (
-    <>
-      <h1>Series</h1>
-      <Button variant="primary" className="float-end adminButton">
-        New Serie
+    <div className="text-center">
+      <h1 className="mt-2">Series</h1>
+      <Button variant="primary" className="float-end adminButton mb-2">
+        Add New Serie
       </Button>
       <TableSeries />
-    </>
+    </div>
   );
 }
 

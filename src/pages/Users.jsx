@@ -4,13 +4,13 @@ import Button from "react-bootstrap/Button";
 
 function Users() {
   return (
-    <>
-      <h1>Users</h1>
-      <Button variant="primary" className="float-end adminButton">
-        New User
+    <div className="text-center">
+      <h1 lassName="mt-2">Users</h1>
+      <Button variant="primary" className="float-end adminButton mb-2">
+        Add New User
       </Button>
       <TableUsers />
-    </>
+    </div>
   );
 }
 

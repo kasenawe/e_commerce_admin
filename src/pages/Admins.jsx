@@ -4,14 +4,14 @@ import Button from "react-bootstrap/Button";
 
 function Admins() {
   return (
-    <>
-      <h1>Admins</h1>
-      <Button variant="primary" className="float-end adminButton">
+    <div className="text-center">
+      <h1 className="mt-2">Admins</h1>
+      <Button variant="primary" className="float-end adminButton mb-2">
         New Admin
       </Button>
 
       <TableAdmins />
-    </>
+    </div>
   );
 }
 

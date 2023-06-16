@@ -28,43 +28,43 @@ function Sidemenu() {
             <Link to={"/"}>Dashboard</Link>{" "}
             <ListGroup.Item
               as={"li"}
-              className="border border-0 bg-transparent"
+              className="border border-0 bg-transparent py-1"
             >
               <Link to={"/brands"}>Brands</Link>{" "}
             </ListGroup.Item>
             <ListGroup.Item
               as={"li"}
-              className="border border-0 bg-transparent"
+              className="border border-0 bg-transparent py-1"
             >
-              <Link to={"/collections"}>Collections</Link>{" "}
+              <Link to={""}>Collections</Link>{" "}
             </ListGroup.Item>
             <ListGroup.Item
               as={"li"}
-              className="border border-0 bg-transparent"
+              className="border border-0 bg-transparent py-1"
             >
               <Link to={"/colors"}>Colors</Link>{" "}
             </ListGroup.Item>
             <ListGroup.Item
               as={"li"}
-              className="border border-0 bg-transparent"
+              className="border border-0 bg-transparent py-1"
             >
               <Link to={"/products"}>Products</Link>{" "}
             </ListGroup.Item>
             <ListGroup.Item
               as={"li"}
-              className="border border-0 bg-transparent"
+              className="border border-0 bg-transparent py-1"
             >
               <Link to={"/orders"}>Orders</Link>{" "}
             </ListGroup.Item>
             <ListGroup.Item
               as={"li"}
-              className="border border-0 bg-transparent"
+              className="border border-0 bg-transparent py-1"
             >
               <Link to={"/users"}>Users</Link>{" "}
             </ListGroup.Item>
             <ListGroup.Item
               as={"li"}
-              className="border border-0 bg-transparent"
+              className="border border-0 bg-transparent py-1"
             >
               <Link to={"/admins"}>Admins</Link>{" "}
             </ListGroup.Item>

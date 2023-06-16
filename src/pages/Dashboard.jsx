@@ -6,12 +6,12 @@ import ListGroup from "react-bootstrap/ListGroup";
 
 function Dashboard() {
   return (
-    <div className="container">
+    <div className="text-center">
       <h1 className="mt-2">Dashboard</h1>
       <div className="row mt-2">
         <div className="col-12 col-sm-6 d-flex justify-content-center mt-4">
           <Card style={{ width: "18rem" }} className="shadow">
-            <ListGroup variant="flush">
+            <ListGroup variant="flush" >
               <ListGroup.Item>
                 <div className="d-flex justify-content-between">
                   <h4 className="card-header-text">Sales</h4>
@@ -95,7 +95,7 @@ function Dashboard() {
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <div className="d-flex justify-content-between">
-                  <h4 className="card-header-text">Sales</h4>
+                  <h4 className="card-header-text">Orders</h4>
                   <div className="circle">
                     <img
                       src="../src/assets/9025885_shopping_cart_icon.svg"

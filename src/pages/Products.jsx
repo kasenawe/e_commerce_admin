@@ -4,13 +4,13 @@ import Button from "react-bootstrap/Button";
 
 function Products() {
   return (
-    <>
-      <h1>Products</h1>
-      <Button variant="primary" className="float-end adminButton">
+    <div className="text-center">
+      <h1 className="mt-2">Products</h1>
+      <Button variant="primary" className="float-end adminButton mb-2">
         New Product
       </Button>
       <TableProducts />
-    </>
+    </div>
   );
 }
 
