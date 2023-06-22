@@ -1,3 +1,6 @@
 .icon {
   height: 25px;
 }
+.icon:hover {
+  cursor: pointer;
+}

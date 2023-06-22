@@ -1,49 +1,64 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+import CreateAdmin from "./CreateAdmin";
 
 import "./TableAdmins.css";
 
 function TableAdmins() {
+  const [admins, setAdmins] = useState([]);
+  const [render, setRender] = useState(0);
+
+  useEffect(() => {
+    const getAdmins = async () => {
+      const response = await axios({
+        method: "GET",
+        url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/admins`,
+      });
+      setAdmins(response.data);
+    };
+    getAdmins();
+  }, [render]);
+
+  const handleRemoveAdmin = (username) => {
+    const deleteAdmin = async (username) => {
+      const response = await axios({
+        method: "DELETE",
+        url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/${username}`,
+      });
+      setRender(render + 1);
+    };
+    deleteAdmin(username);
+  };
+
   return (
     <table className="table table-dark table-hover">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Username</th>
           <th scope="col">Firstname</th>
           <th scope="col">Lastname</th>
-          <th scope="col">Username</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>markotto</td>
-          <td>
-            <img src="/img/edit_icon.svg" alt="edit icon" className="icon" />
-            <img src="/img/trash_icon.svg" alt="edit icon" className="icon" />
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>jacobthor</td>
-          <td>
-            <img src="/img/edit_icon.svg" alt="edit icon" className="icon" />
-            <img src="/img/trash_icon.svg" alt="edit icon" className="icon" />
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colSpan="2">Larry the Bird</td>
-          <td>birdy</td>
-          <td>
-            <img src="/img/edit_icon.svg" alt="edit icon" className="icon" />
-            <img src="/img/trash_icon.svg" alt="edit icon" className="icon" />
-          </td>
-        </tr>
+        {admins &&
+          admins.map((admin) => (
+            <tr key={admin.id}>
+              <td>{admin.username}</td>
+              <td>{admin.firstname}</td>
+              <td>{admin.lastname}</td>
+              <td className="d-flex gap-3 justify-content-center">
+                <CreateAdmin />
+                <img
+                  src="/img/trash_icon.svg"
+                  alt="edit icon"
+                  className="icon"
+                  onClick={() => handleRemoveAdmin(admin.username)}
+                />
+              </td>
+            </tr>
+          ))}
       </tbody>
     </table>
   );
