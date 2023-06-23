@@ -1,5 +1,6 @@
 import React from "react";
 import "./TableProducts.css";
+import CreateProduct from "./CreateProduct";
 
 function TableProducts({ products }) {
   return (
@@ -54,7 +55,7 @@ function TableProducts({ products }) {
             <td> {product.createdAt}</td>
             <td>{product.updatedAt}</td> */}
             <td>
-              <img src="/img/edit_icon.svg" alt="edit icon" className="icon" />
+              {/* <CreateProduct /> */}
               <img src="/img/trash_icon.svg" alt="edit icon" className="icon" />
             </td>
           </tr>

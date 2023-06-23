@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TableProducts from "../components/TableProducts";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import CreateProduct from "../components/CreateProduct";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -21,9 +22,7 @@ function Products() {
   return (
     <div className="text-center">
       <h1 className="mt-2">Products</h1>
-      <Button variant="primary" className="float-end adminButton mb-2">
-        New Product
-      </Button>
+      <CreateProduct />
       <TableProducts products={products} />
     </div>
   );
