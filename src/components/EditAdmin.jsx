@@ -2,9 +2,8 @@ import { useState } from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import axios from "axios";
 
-function CreateAdmin() {
+function EditAdmin({ username }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -15,38 +14,25 @@ function CreateAdmin() {
   const [firstnameValue, setFirstname] = useState("");
   const [lastnameValue, setLastname] = useState("");
 
-  async function handleCreateAdmin(event) {
-    event.preventDefault();
-    await axios({
-      method: "POST",
-      url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/admin`,
-      data: {
-        firstname: firstnameValue,
-        lastname: lastnameValue,
-        username: usernameValue,
-        password: passwordValue,
-        role_code: "100",
-      },
-    });
+  const handleEditAdmin = () => {
+    handleClose;
+  };
 
-    handleClose();
-  }
   return (
     <>
-      <Button
-        variant="primary"
-        className="float-end adminButton mb-2"
+      <img
+        src="/img/edit_icon.svg"
+        alt="edit icon"
+        className="icon"
         onClick={handleShow}
-      >
-        New Admin
-      </Button>
+      />
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleCreateAdmin}>
+          <Form onSubmit={handleEditAdmin}>
             <Form.Label htmlFor="username">Username</Form.Label>
             <Form.Control
               type="text"
@@ -90,4 +76,4 @@ function CreateAdmin() {
   );
 }
 
-export default CreateAdmin;
+export default EditAdmin;

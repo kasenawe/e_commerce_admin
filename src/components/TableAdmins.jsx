@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import CreateAdmin from "./CreateAdmin";
+import CreateAdmin from "./EditAdmin";
 
 import "./TableAdmins.css";
 
