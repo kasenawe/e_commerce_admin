@@ -1,14 +1,12 @@
 import "./Dashboard.css";
 import React from "react";
 import Card from "react-bootstrap/Card";
-import NavbarComponent from "../components/NavbarComponent";
 
 import ListGroup from "react-bootstrap/ListGroup";
 
 function Dashboard() {
   return (
     <>
-      <NavbarComponent />
       <div className="text-center">
         <h1 className="mt-2">Dashboard</h1>
         <div className="row mt-2">

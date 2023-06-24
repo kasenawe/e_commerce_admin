@@ -18,18 +18,21 @@ import "./App.css";
 function App() {
   return (
     <>
-      <div className="container mb-5">
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/admins" element={<Admins />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/lines" element={<Lines />} />
-          <Route path="/brands" element={<Brands />} />
-          <Route path="/colors" element={<Colors />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/users" element={<Users />} />
-        </Routes>
+      <div className="container-fluid m-0 p-0">
+        <NavbarComponent />
+        <div className="w-75 p-5 mx-auto">
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/admins" element={<Admins />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/lines" element={<Lines />} />
+            <Route path="/brands" element={<Brands />} />
+            <Route path="/colors" element={<Colors />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/users" element={<Users />} />
+          </Routes>
+        </div>
       </div>
       <Footer />
     </>

@@ -7,10 +7,9 @@ function NavbarComponent() {
   return (
     <>
       <Navbar bg="dark" variant="dark">
-        <Container>
+        <Container className="w-75 mx-auto px-5">
           <Navbar.Brand to="/">
             <Sidemenu />
-
             <small className="mx-3">Admin</small>
           </Navbar.Brand>
         </Container>
