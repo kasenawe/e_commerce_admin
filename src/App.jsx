@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import NavbarComponent from "./components/NavbarComponent";
 import Footer from "./components/Footer";
@@ -22,15 +23,17 @@ function App() {
         <NavbarComponent />
         <div className="w-75 p-5 mx-auto">
           <Routes>
+            <Route element={<ProtectedRoute />}>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/admins" element={<Admins />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/lines" element={<Lines />} />
+              <Route path="/brands" element={<Brands />} />
+              <Route path="/colors" element={<Colors />} />
+              <Route path="/orders" element={<Orders />} />
+              <Route path="/users" element={<Users />} />
+            </Route>
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/admins" element={<Admins />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/lines" element={<Lines />} />
-            <Route path="/brands" element={<Brands />} />
-            <Route path="/colors" element={<Colors />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/users" element={<Users />} />
           </Routes>
         </div>
       </div>
