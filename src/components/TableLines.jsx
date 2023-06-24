@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import EditLine from "./EditLine";
 
 function TableLines() {
   const [lines, setLines] = useState([]);
@@ -38,11 +39,7 @@ function TableLines() {
               <td>{line.description.substring(0, 70) + "..."}</td>
               <td>Images</td>
               <td>
-                <img
-                  src="/img/edit_icon.svg"
-                  alt="edit icon"
-                  className="icon"
-                />
+                <EditLine line={line} setRender={setRender} render={render} />
                 <img
                   src="/img/trash_icon.svg"
                   alt="edit icon"
