@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function CreateAdmin() {
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -30,6 +32,7 @@ function CreateAdmin() {
     });
 
     handleClose();
+    navigate("/admins");
   }
   return (
     <>
