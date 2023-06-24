@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import CreateAdmin from "./EditAdmin";
+import EditAdmin from "./EditAdmin";
 
 import "./TableAdmins.css";
 
@@ -49,7 +49,7 @@ function TableAdmins() {
               <td>{admin.firstname}</td>
               <td>{admin.lastname}</td>
               <td className="d-flex gap-3 justify-content-center">
-                <CreateAdmin setRender={setRender} render={render} />
+                <EditAdmin setRender={setRender} render={render} />
                 <img
                   src="/img/trash_icon.svg"
                   alt="edit icon"
