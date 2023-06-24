@@ -19,7 +19,7 @@ function CreateAdmin() {
     event.preventDefault();
     await axios({
       method: "POST",
-      url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/admin`,
+      url: `${import.meta.env.VITE_API_DOMAIN}/api/admin`,
       data: {
         firstname: firstnameValue,
         lastname: lastnameValue,

@@ -1,21 +1,21 @@
 import React from "react";
-import TableUsers from "../components/TableUsers";
+import TableLines from "../components/TableLines";
 import Button from "react-bootstrap/Button";
 import NavbarComponent from "../components/NavbarComponent";
 
-function Users() {
+function Lines() {
   return (
     <>
       <NavbarComponent />
       <div className="text-center">
-        <h1 lassName="mt-2">Users</h1>
+        <h1 className="mt-2">Lines</h1>
         <Button variant="primary" className="float-end adminButton mb-2">
-          Add New User
+          Add New Line
         </Button>
-        <TableUsers />
+        <TableLines />
       </div>
     </>
   );
 }
 
-export default Users;
+export default Lines;

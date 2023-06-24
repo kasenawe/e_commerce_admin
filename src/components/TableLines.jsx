@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-function TableSeries() {
+function TableLines() {
   const [lines, setLines] = useState([]);
   const [render, setRender] = useState(0);
 
@@ -55,4 +55,4 @@ function TableSeries() {
     </table>
   );
 }
-export default TableSeries;
+export default TableLines;

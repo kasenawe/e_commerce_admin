@@ -49,7 +49,7 @@ function TableAdmins() {
               <td>{admin.firstname}</td>
               <td>{admin.lastname}</td>
               <td className="d-flex gap-3 justify-content-center">
-                <CreateAdmin />
+                <CreateAdmin setRender={setRender} render={render} />
                 <img
                   src="/img/trash_icon.svg"
                   alt="edit icon"

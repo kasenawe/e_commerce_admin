@@ -3,6 +3,7 @@ import TableProducts from "../components/TableProducts";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import CreateProduct from "../components/CreateProduct";
+import NavbarComponent from "../components/NavbarComponent";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -20,11 +21,14 @@ function Products() {
   }, []);
 
   return (
-    <div className="text-center">
-      <h1 className="mt-2">Products</h1>
-      <CreateProduct />
-      <TableProducts products={products} />
-    </div>
+    <>
+      <NavbarComponent />
+      <div className="text-center">
+        <h1 className="mt-2">Products</h1>
+        <CreateProduct />
+        <TableProducts products={products} />
+      </div>
+    </>
   );
 }
 

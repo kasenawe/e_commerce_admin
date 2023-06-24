@@ -5,25 +5,26 @@ import Footer from "./components/Footer";
 
 import Dashboard from "./pages/Dashboard";
 import Products from "./pages/Products";
-import Series from "./pages/Series";
+import Lines from "./pages/Lines";
 import Brands from "./pages/Brands";
 import Colors from "./pages/Colors";
 import Orders from "./pages/Orders";
 import Admins from "./pages/Admins";
 import Users from "./pages/Users";
+import Login from "./pages/Login";
 
 import "./App.css";
 
 function App() {
   return (
     <>
-      <NavbarComponent />
       <div className="container mb-5">
         <Routes>
+          <Route path="/login" element={<Login />} />
           <Route path="/" element={<Dashboard />} />
           <Route path="/admins" element={<Admins />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/series" element={<Series />} />
+          <Route path="/lines" element={<Lines />} />
           <Route path="/brands" element={<Brands />} />
           <Route path="/colors" element={<Colors />} />
           <Route path="/orders" element={<Orders />} />
