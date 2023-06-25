@@ -26,7 +26,6 @@ function TableLines() {
           <th scope="col">Brand</th>
           <th scope="col">Name</th>
           <th scope="col">Description</th>
-          <th scope="col">Images</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -37,7 +36,6 @@ function TableLines() {
               <td>{line.brand.name}</td>
               <td>{line.name}</td>
               <td>{line.description.substring(0, 70) + "..."}</td>
-              <td>Images</td>
               <td>
                 <EditLine line={line} setRender={setRender} render={render} />
                 <img

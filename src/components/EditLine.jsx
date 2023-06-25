@@ -35,6 +35,7 @@ function EditLine({ line, render, setRender }) {
     formData.append("name", nameValue);
     formData.append("brand", brandValue);
     formData.append("description", descriptionValue);
+
     for (let i = 0; i < imagesValue.length; i++) {
       formData.append("images", imagesValue[i]);
     }
@@ -45,7 +46,7 @@ function EditLine({ line, render, setRender }) {
       data: formData,
       headers: {
         "Content-Type": "multipart/form-data",
-        //Authorization: "Bearer " + token,
+        Authorization: "Bearer " + token,
       },
     });
 
@@ -101,6 +102,7 @@ function EditLine({ line, render, setRender }) {
               id="images"
               onChange={(event) => setImages(event.target.files)}
             />
+            <div className="d-flex"></div>
             <div className="d-flex gap-2 mt-3 justify-content-end">
               <Button variant="secondary" onClick={handleClose}>
                 Close
