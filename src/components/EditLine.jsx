@@ -45,7 +45,7 @@ function EditLine({ line, render, setRender }) {
       data: formData,
       headers: {
         "Content-Type": "multipart/form-data",
-        //Authorization: "Bearer " + token,
+        Authorization: "Bearer " + token,
       },
     });
 
