@@ -2,20 +2,40 @@ import { useState } from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
-function EditAdmin({ username }) {
+function EditAdmin({ adminRow, render, setRender }) {
+  const admin = useSelector((state) => state.admin);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [usernameValue, setUsername] = useState("");
+  const [usernameValue, setUsername] = useState(adminRow.username);
   const [passwordValue, setPassword] = useState("");
-  const [firstnameValue, setFirstname] = useState("");
-  const [lastnameValue, setLastname] = useState("");
+  const [firstnameValue, setFirstname] = useState(adminRow.firstname);
+  const [lastnameValue, setLastname] = useState(adminRow.lastname);
 
-  const handleEditAdmin = () => {
-    handleClose;
+  const handleEditAdmin = async (event) => {
+    event.preventDefault();
+    await axios({
+      method: "PATCH",
+      url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/${adminRow.username}`,
+      data: {
+        firstname: firstnameValue,
+        lastname: lastnameValue,
+        username: usernameValue,
+        password: passwordValue,
+        role_code: "100",
+      },
+      headers: {
+        Authorization: `Bearer ${admin.token}`,
+      },
+    });
+
+    handleClose();
+    setRender(render + 1);
   };
 
   return (
@@ -32,7 +52,7 @@ function EditAdmin({ username }) {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleEditAdmin}>
+          <Form onSubmit={(event) => handleEditAdmin(event)}>
             <Form.Label htmlFor="username">Username</Form.Label>
             <Form.Control
               type="text"

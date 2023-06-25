@@ -20,7 +20,7 @@ function NavbarComponent() {
         <Container className="w-75 mx-auto px-5">
           <Navbar.Brand to="/">
             <Sidemenu />
-            <small className="mx-3">Admin</small>
+            {admin && <small className="mx-3">{admin.username}</small>}
             {admin && (
               <Link
                 className="btn btn-danger rounded-pill fw-medium mb-4 w-75"

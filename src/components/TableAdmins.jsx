@@ -1,32 +1,50 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
 import EditAdmin from "./EditAdmin";
 
 import "./TableAdmins.css";
 
-function TableAdmins() {
+function TableAdmins({ render, setRender }) {
+  const loggedAdmin = useSelector((state) => state.admin);
   const [admins, setAdmins] = useState([]);
-  const [render, setRender] = useState(0);
 
   useEffect(() => {
     const getAdmins = async () => {
-      const response = await axios({
-        method: "GET",
-        url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/admins`,
-      });
-      setAdmins(response.data);
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_DOMAIN}/admins`,
+          {
+            headers: {
+              Authorization: `Bearer ${loggedAdmin.token}`,
+            },
+          }
+        );
+
+        setAdmins(response.data);
+      } catch (error) {
+        console.log(error);
+      }
     };
     getAdmins();
   }, [render]);
 
   const handleRemoveAdmin = (username) => {
     const deleteAdmin = async (username) => {
-      const response = await axios({
-        method: "DELETE",
-        url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/${username}`,
-      });
-      setRender(render + 1);
+      try {
+        await axios.delete(
+          `${import.meta.env.VITE_API_DOMAIN}/api/admin/${username}`,
+          {
+            headers: {
+              Authorization: `Bearer ${loggedAdmin.token}`,
+            },
+          }
+        );
+        setRender(render + 1);
+      } catch (error) {
+        console.log(error);
+      }
     };
     deleteAdmin(username);
   };
@@ -49,13 +67,19 @@ function TableAdmins() {
               <td>{admin.firstname}</td>
               <td>{admin.lastname}</td>
               <td className="d-flex gap-3 justify-content-center">
-                <EditAdmin setRender={setRender} render={render} />
-                <img
-                  src="/img/trash_icon.svg"
-                  alt="edit icon"
-                  className="icon"
-                  onClick={() => handleRemoveAdmin(admin.username)}
+                <EditAdmin
+                  adminRow={admin}
+                  render={render}
+                  setRender={setRender}
                 />
+                {admin.username !== loggedAdmin.username && (
+                  <img
+                    src="/img/trash_icon.svg"
+                    alt="edit icon"
+                    className="icon"
+                    onClick={() => handleRemoveAdmin(admin.username)}
+                  />
+                )}
               </td>
             </tr>
           ))}

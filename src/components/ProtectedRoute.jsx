@@ -3,8 +3,9 @@ import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedRoute = () => {
   const admin = useSelector((state) => state.admin);
+  console.log(admin);
 
-  if (!admin) {
+  if (!admin || !admin.token) {
     return <Navigate to="/login" replace />;
   }
 

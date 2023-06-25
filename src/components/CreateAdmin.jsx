@@ -2,9 +2,13 @@ import { useState } from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 
-function CreateAdmin() {
+function CreateAdmin({ render, setRender }) {
+  const admin = useSelector((state) => state.admin);
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -27,9 +31,13 @@ function CreateAdmin() {
         password: passwordValue,
         role_code: "100",
       },
+      headers: {
+        Authorization: `Bearer ${admin.token}`,
+      },
     });
 
     handleClose();
+    setRender(render + 1);
   }
   return (
     <>
