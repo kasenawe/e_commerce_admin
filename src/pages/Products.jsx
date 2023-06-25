@@ -12,7 +12,6 @@ function Products() {
         `${import.meta.env.VITE_API_DOMAIN}/products`
       );
       setProducts(response.data);
-      console.log(response.data);
     };
 
     getProducts();
