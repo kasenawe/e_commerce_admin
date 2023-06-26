@@ -14,7 +14,7 @@ function TableAdmins({ render, setRender }) {
     const getAdmins = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_DOMAIN}/admins`,
+          `${import.meta.env.VITE_API_DOMAIN}/api/admin/admins`,
           {
             headers: {
               Authorization: `Bearer ${loggedAdmin.token}`,
