@@ -4,13 +4,19 @@ import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-function EditProduct({ product }) {
+function EditProduct({ product, render, setRender }) {
+  const loggedAdmin = useSelector((state) => state.admin);
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [brands, setBrands] = useState([]);
   const [lines, setLines] = useState([]);
-  const [colors, setColors] = useState([]);
   const [filterLine, setFilterLine] = useState("");
+  const [newColors, setNewColors] = useState([]);
+  const [newColorsNames, setNewColorsNames] = useState([]);
+  const [allColors, setAllColors] = useState([]);
+  const [tempColors, setTempColors] = useState([]);
 
   const handleClose = () => setShow(false);
   const handleShow = async () => {
@@ -22,6 +28,9 @@ function EditProduct({ product }) {
       const response = await axios({
         method: "GET",
         url: `${import.meta.env.VITE_API_DOMAIN}/brands`,
+        headers: {
+          Authorization: `Bearer ${loggedAdmin.token}`,
+        },
       });
       setBrands(response.data);
     };
@@ -36,6 +45,9 @@ function EditProduct({ product }) {
         url: `${
           import.meta.env.VITE_API_DOMAIN
         }/lines?filterBrand=${filterLine}`,
+        headers: {
+          Authorization: `Bearer ${loggedAdmin.token}`,
+        },
       });
       setLines(response.data);
     };
@@ -47,17 +59,18 @@ function EditProduct({ product }) {
       const response = await axios({
         method: "GET",
         url: `${import.meta.env.VITE_API_DOMAIN}/colors`,
+        headers: {
+          Authorization: `Bearer ${loggedAdmin.token}`,
+        },
       });
-      setColors(response.data);
+      setAllColors(response.data);
+      setTempColors(response.data);
     };
     getColors();
   }, []);
 
-  const navigate = useNavigate();
-  console.log(product);
   const [line, setLine] = useState(product.line.name);
   const [brand, setBrand] = useState(product.brand.name);
-  const [color, setColor] = useState(product.color.name);
   const [name, setName] = useState(product.name);
   const [description, setDescription] = useState(product.description);
   const [gender, setGender] = useState(product.gender);
@@ -77,17 +90,19 @@ function EditProduct({ product }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const formData = new FormData();
-    formData.append("brand", brand);
-    formData.append("line", line);
-    formData.append("color", color);
-    formData.append("name", name);
-    formData.append("description", description);
-    formData.append("gender", gender);
-    formData.append("price", price);
-    formData.append("trending", trending);
-    formData.append("image", image);
-    formData.append("stock", 50);
+
+    const formData = {
+      brand: brand,
+      line: line,
+      color: newColors,
+      name: name,
+      description: description,
+      gender: gender,
+      price: price,
+      trending: trending,
+      image: image,
+      stock: 50,
+    };
 
     await axios({
       method: "PATCH",
@@ -95,11 +110,34 @@ function EditProduct({ product }) {
       data: formData,
       headers: {
         "content-type": "multipart/form-data",
+        Authorization: `Bearer ${loggedAdmin.token}`,
       },
     });
     handleClose();
+    setRender(render + 1);
     return console.log("El producto se ha editado correctamente!");
   }
+
+  const handleChange = (e) => {
+    setNewColors([...newColors, e.target.value]);
+    setNewColorsNames([
+      ...newColorsNames,
+      tempColors.find((item) => item.id === e.target.value).name,
+    ]);
+    setTempColors(tempColors.filter((color) => color.id !== e.target.value));
+  };
+
+  const handleRemove = (colorName) => {
+    const selectedColor = allColors.find((color) => color.name === colorName);
+    setNewColors(newColors.filter((colorId) => colorId !== selectedColor.id));
+    setNewColorsNames(
+      newColorsNames.filter((colorName) => colorName !== selectedColor.name)
+    );
+    setTempColors([
+      ...tempColors,
+      { id: selectedColor.id, name: selectedColor.name },
+    ]);
+  };
 
   return (
     <>
@@ -178,34 +216,46 @@ function EditProduct({ product }) {
                         ))}
                     </Form.Select>
                   </Form.Group>
+                  <Form.Group action="">
+                    <div className="shadow rounded mt-4 ms-2 mb-2">
+                      {newColorsNames.length > 0
+                        ? newColorsNames.map((color) => (
+                            <span
+                              key={color}
+                              style={{
+                                backgroundColor: allColors.find(
+                                  (item) => item.name === color
+                                ).colorCode,
+                              }}
+                              className="me-2 p-2 rounded shadow"
+                              onClick={() => handleRemove(color)}
+                            >
+                              {color} <sup className="ms-1 fw-bold">X</sup>
+                            </span>
+                          ))
+                        : "S/C"}
+                    </div>
 
-                  <Form.Group>
-                    <Form.Label htmlFor="color" className="ms-2 my-1">
-                      Color
+                    <Form.Label htmlFor="line" className="ms-2 my-1">
+                      Colors
                     </Form.Label>
                     <Form.Select
-                      aria-label="Default select example"
-                      className="filter-selector"
                       name="color"
-                      value={color}
-                      onChange={(e) => setColor(e.target.value)}
+                      id="color"
+                      onInput={handleChange}
                       required={true}
-                      disabled={true}
                     >
-                      <option
-                        key={product.color._id}
-                        value={product.color.name}
-                      >
-                        {`${product.color.map((color) => color.name)} ,`}
-                      </option>
+                      <option>Seleccionar color...</option>
+                      {tempColors.map((color) => (
+                        <option key={color.id} value={color.id}>
+                          {color.name}
+                        </option>
+                      ))}
                     </Form.Select>
                   </Form.Group>
+
                   <Form.Group>
-                    <Form.Label
-                      htmlFor="name"
-                      className="ms-2 my-1"
-                      value={name}
-                    >
+                    <Form.Label htmlFor="name" className="ms-2 my-1">
                       Product name
                     </Form.Label>
                     <Form.Control
@@ -223,7 +273,6 @@ function EditProduct({ product }) {
                     <Form.Label
                       htmlFor="gender"
                       className="ms-2 my-1"
-                      value={gender}
                       required={true}
                     >
                       Gender
@@ -254,7 +303,7 @@ function EditProduct({ product }) {
                     />
                   </Form.Group>
                   <Form.Group>
-                    <Form.Label htmlFor="trending" className="ms-2 my-1">
+                    <Form.Label htmlFor="trending" className="ms-2 my-1 ">
                       Trending
                     </Form.Label>
                     <Form.Select

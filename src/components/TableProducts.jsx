@@ -2,8 +2,11 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./TableProducts.css";
 import EditProduct from "./EditProduct";
+import { useSelector } from "react-redux";
 
 function TableProducts({ products, render, setRender }) {
+  const loggedAdmin = useSelector((state) => state.admin);
+
   const handleDelete = async (product) => {
     try {
       const response = await axios({
@@ -11,6 +14,9 @@ function TableProducts({ products, render, setRender }) {
         url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/product/${
           product.id
         }`,
+        headers: {
+          Authorization: `Bearer ${loggedAdmin.token}`,
+        },
       });
       console.log("product deleted:", response.data);
       setRender(render + 1);
@@ -63,7 +69,11 @@ function TableProducts({ products, render, setRender }) {
             <td>{product.stock}</td>
             <td>{product.trending ? "destacado" : "-"}</td>
             <td>
-              <EditProduct product={product} />
+              <EditProduct
+                product={product}
+                render={render}
+                setRender={setRender}
+              />
               <img
                 src="/img/trash_icon.svg"
                 alt="edit icon"

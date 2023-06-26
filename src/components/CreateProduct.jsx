@@ -3,9 +3,10 @@ import axios from "axios";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function CreateProduct() {
+  const loggedAdmin = useSelector((state) => state.admin);
   const [show, setShow] = useState(false);
   const [brands, setBrands] = useState([]);
   const [lines, setLines] = useState([]);
@@ -20,6 +21,9 @@ function CreateProduct() {
       const response = await axios({
         method: "GET",
         url: `${import.meta.env.VITE_API_DOMAIN}/brands`,
+        headers: {
+          Authorization: `Bearer ${loggedAdmin.token}`,
+        },
       });
       setBrands(response.data);
     };
@@ -34,6 +38,9 @@ function CreateProduct() {
         url: `${
           import.meta.env.VITE_API_DOMAIN
         }/lines?filterBrand=${filterLine}`,
+        headers: {
+          Authorization: `Bearer ${loggedAdmin.token}`,
+        },
       });
       setLines(response.data);
     };
@@ -45,6 +52,9 @@ function CreateProduct() {
       const response = await axios({
         method: "GET",
         url: `${import.meta.env.VITE_API_DOMAIN}/colors`,
+        headers: {
+          Authorization: `Bearer ${loggedAdmin.token}`,
+        },
       });
       setColors(response.data);
     };
@@ -87,7 +97,7 @@ function CreateProduct() {
 
     await axios({
       method: "POST",
-      url: "http://localhost:3000/api/admin/product",
+      url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/product`,
       data: formData,
       headers: {
         "content-type": "multipart/form-data",
