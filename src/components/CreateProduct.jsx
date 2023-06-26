@@ -56,8 +56,6 @@ function CreateProduct() {
     setFilterLine(event.target.value);
   };
 
-  const navigate = useNavigate();
-
   const [line, setLine] = useState("");
   const [brand, setBrand] = useState("");
   const [color, setColor] = useState("");
@@ -101,13 +99,9 @@ function CreateProduct() {
 
   return (
     <>
-      <Button
-        variant="primary"
-        className="float-end adminButton mb-2"
-        onClick={handleShow}
-      >
-        New Product
-      </Button>
+      <div className="btn float-end my-3" onClick={handleShow}>
+        <div className="btn-content">New Product</div>
+      </div>
       <Modal show={show} onHide={handleClose} className="modal-xl">
         <Modal.Header closeButton>
           <Modal.Title>New Product</Modal.Title>
