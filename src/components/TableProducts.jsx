@@ -1,8 +1,24 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "./TableProducts.css";
 import EditProduct from "./EditProduct";
 
-function TableProducts({ products }) {
+function TableProducts({ products, render, setRender }) {
+  const handleDelete = async (product) => {
+    try {
+      const response = await axios({
+        method: "DELETE",
+        url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/product/${
+          product.id
+        }`,
+      });
+      console.log("product deleted:", response.data);
+      setRender(render + 1);
+    } catch (error) {
+      console.error("Error at product delete request:", error);
+    }
+  };
+
   return (
     <table className="border table table-dark table-hover text-center mt-3">
       <thead>
@@ -48,7 +64,12 @@ function TableProducts({ products }) {
             <td>{product.trending ? "destacado" : "-"}</td>
             <td>
               <EditProduct product={product} />
-              <img src="/img/trash_icon.svg" alt="edit icon" className="icon" />
+              <img
+                src="/img/trash_icon.svg"
+                alt="edit icon"
+                className="icon"
+                onClick={() => handleDelete(product)}
+              />
             </td>
           </tr>
         ))}

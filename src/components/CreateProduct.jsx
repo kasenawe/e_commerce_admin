@@ -108,7 +108,7 @@ function CreateProduct() {
       >
         New Product
       </Button>
-      <Modal show={show} onHide={handleClose} className="modal-xl">
+      <Modal show={show} onHide={handleClose} className="modal-lg">
         <Modal.Header closeButton className="bg-dark">
           <Modal.Title>New Product</Modal.Title>
         </Modal.Header>
@@ -177,7 +177,7 @@ function CreateProduct() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label htmlFor="name" className="ms-2 my-1" value={name}>
+                  <Form.Label htmlFor="name" className="ms-2 my-1">
                     Product name
                   </Form.Label>
                   <Form.Control
@@ -195,7 +195,6 @@ function CreateProduct() {
                   <Form.Label
                     htmlFor="gender"
                     className="ms-2 my-1"
-                    value={gender}
                     required={true}
                   >
                     Gender

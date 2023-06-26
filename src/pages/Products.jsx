@@ -5,6 +5,7 @@ import CreateProduct from "../components/CreateProduct";
 
 function Products() {
   const [products, setProducts] = useState([]);
+  const [render, setRender] = useState(0);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -15,14 +16,18 @@ function Products() {
     };
 
     getProducts();
-  }, []);
+  }, [render]);
 
   return (
     <>
       <div className="text-center margin5">
         <h1 className="mt-2 family-pinyon">Products</h1>
         <CreateProduct />
-        <TableProducts products={products} />
+        <TableProducts
+          products={products}
+          render={render}
+          setRender={setRender}
+        />
       </div>
     </>
   );
