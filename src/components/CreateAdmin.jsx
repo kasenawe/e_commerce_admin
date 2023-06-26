@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CreateAdmin({ render, setRender }) {
   const admin = useSelector((state) => state.admin);
-  const navigate = useNavigate();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -18,6 +18,18 @@ function CreateAdmin({ render, setRender }) {
   const [passwordValue, setPassword] = useState("");
   const [firstnameValue, setFirstname] = useState("");
   const [lastnameValue, setLastname] = useState("");
+
+  const notifyAdd = () =>
+    toast.success(`Admin ${usernameValue} created`, {
+      position: "bottom-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
 
   async function handleCreateAdmin(event) {
     event.preventDefault();
@@ -35,7 +47,7 @@ function CreateAdmin({ render, setRender }) {
         Authorization: `Bearer ${admin.token}`,
       },
     });
-
+    notifyAdd();
     handleClose();
     setRender(render + 1);
   }
@@ -82,6 +94,7 @@ function CreateAdmin({ render, setRender }) {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
+
               <Button type="submit" variant="primary">
                 Save Changes
               </Button>
@@ -89,6 +102,7 @@ function CreateAdmin({ render, setRender }) {
           </Form>
         </Modal.Body>
       </Modal>
+      <ToastContainer />
     </>
   );
 }

@@ -54,7 +54,7 @@ function EditProduct({ product }) {
   }, []);
 
   const navigate = useNavigate();
-
+  console.log(product);
   const [line, setLine] = useState(product.line.name);
   const [brand, setBrand] = useState(product.brand.name);
   const [color, setColor] = useState(product.color.name);
@@ -110,7 +110,7 @@ function EditProduct({ product }) {
         onClick={handleShow}
       />
       {product && (
-        <Modal show={show} onHide={handleClose} className="modal-lg">
+        <Modal show={show} onHide={handleClose} className="modal-xl">
           <Modal.Header closeButton className="bg-dark">
             <Modal.Title>Edit Product</Modal.Title>
           </Modal.Header>

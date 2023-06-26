@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useSelector } from "react-redux";
 
 function EditLine({ line, render, setRender }) {
   const [show, setShow] = useState(false);
+  const admin = useSelector((state) => state.admin);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -46,7 +48,7 @@ function EditLine({ line, render, setRender }) {
       data: formData,
       headers: {
         "Content-Type": "multipart/form-data",
-        Authorization: "Bearer " + token,
+        Authorization: "Bearer " + admin.token,
       },
     });
 
@@ -63,10 +65,10 @@ function EditLine({ line, render, setRender }) {
         onClick={handleShow}
       />
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton closeVariant="white" className="bg-dark">
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="bg-dark">
           <Form onSubmit={(event) => handleEditLine(event)}>
             <Form.Label htmlFor="brand">Brand</Form.Label>
 

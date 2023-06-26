@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeToken } from "../redux/adminSlice";
 import "./NavbarComponent.css";
-import { NavbarBrand } from "react-bootstrap";
 
 function NavbarComponent() {
   const admin = useSelector((state) => state.admin);

@@ -56,8 +56,6 @@ function CreateProduct() {
     setFilterLine(event.target.value);
   };
 
-  const navigate = useNavigate();
-
   const [line, setLine] = useState("");
   const [brand, setBrand] = useState("");
   const [color, setColor] = useState("");
