@@ -1,6 +1,6 @@
 import React from "react";
 import "./TableProducts.css";
-import CreateProduct from "./CreateProduct";
+import EditProduct from "./EditProduct";
 
 function TableProducts({ products }) {
   return (
@@ -47,6 +47,7 @@ function TableProducts({ products }) {
             <td>{product.stock}</td>
             <td>{product.trending ? "destacado" : "-"}</td>
             <td>
+              <EditProduct product={product} />
               <img src="/img/trash_icon.svg" alt="edit icon" className="icon" />
             </td>
           </tr>

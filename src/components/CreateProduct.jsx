@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 
-function FormProduct() {
+function CreateProduct() {
   const [show, setShow] = useState(false);
   const [brands, setBrands] = useState([]);
   const [lines, setLines] = useState([]);
@@ -95,6 +95,7 @@ function FormProduct() {
         "content-type": "multipart/form-data",
       },
     });
+    handleClose();
     return console.log("El producto se ha creado correctamente!");
   }
 
@@ -114,7 +115,7 @@ function FormProduct() {
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <div className="row">
-              <div className="col">
+              <div className="col-12 col-sm-12 col-md-6">
                 <Form.Group>
                   <Form.Label htmlFor="brand" className="ms-2 my-1">
                     Brand
@@ -189,7 +190,7 @@ function FormProduct() {
                 </Form.Group>
               </div>
 
-              <div className="col">
+              <div className="col-12 col-sm-12 col-md-6">
                 <Form.Group>
                   <Form.Label
                     htmlFor="gender"
@@ -285,4 +286,4 @@ function FormProduct() {
   );
 }
 
-export default FormProduct;
+export default CreateProduct;
