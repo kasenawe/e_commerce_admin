@@ -4,3 +4,8 @@
 .icon:hover {
   cursor: pointer;
 }
+
+.bg-header {
+  background-color: var(--color-grey-header) !important;
+  color: black !important;
+}

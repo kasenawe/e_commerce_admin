@@ -59,10 +59,18 @@ function TableLines({ render, setRender }) {
       <table className="border table table-dark table-hover text-center">
         <thead>
           <tr>
-            <th scope="col">Brand</th>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Actions</th>
+            <th scope="col" className="bg-header">
+              Brand
+            </th>
+            <th scope="col" className="bg-header">
+              Name
+            </th>
+            <th scope="col" className="bg-header">
+              Description
+            </th>
+            <th scope="col" className="bg-header">
+              Actions
+            </th>
           </tr>
         </thead>
         <tbody>

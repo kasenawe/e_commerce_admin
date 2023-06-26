@@ -5,12 +5,24 @@ function TableOrders() {
     <table className="border table table-dark table-hover text-center">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Date</th>
-          <th scope="col">Client</th>
-          <th scope="col">Address</th>
-          <th scope="col">Status</th>
-          <th scope="col">Total Price</th>
+          <th scope="col" className="bg-header">
+            #
+          </th>
+          <th scope="col" className="bg-header">
+            Date
+          </th>
+          <th scope="col" className="bg-header">
+            Client
+          </th>
+          <th scope="col" className="bg-header">
+            Address
+          </th>
+          <th scope="col" className="bg-header">
+            Status
+          </th>
+          <th scope="col" className="bg-header">
+            Total Price
+          </th>
         </tr>
       </thead>
       <tbody>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setToken } from "../redux/adminSlice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -9,27 +9,46 @@ import { Tooltip } from "antd";
 import "./Login.css";
 
 function Login() {
+  const admin = useSelector((state) => state.admin);
   const [usernameValue, setUsernameValue] = useState("admin");
   const [passwordValue, setPasswordValue] = useState("admin");
+  const [error, setError] = useState(null); // Estado para almacenar el mensaje de error
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const response = await axios({
-      method: "POST",
-      url: "http://localhost:3000/adm/login",
-      data: {
-        username: usernameValue,
-        password: passwordValue,
-      },
-    });
-    dispatch(setToken(response.data));
-    navigate("/");
+    try {
+      const response = await axios({
+        method: "POST",
+        url: "http://localhost:3000/adm/login",
+        data: {
+          username: usernameValue,
+          password: passwordValue,
+        },
+      });
+
+      if (response.data.error) {
+        // Mostrar error de credenciales inválidas
+        setError(response.data.error);
+      } else {
+        dispatch(setToken(response.data));
+
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
+      setError("Error en el servidor");
+    }
   }
+
   return (
     <div className="w-100 container-form">
       <div className="form-container">
+        {error && (
+          <p className="text-center font-quicksand color-red">{error}</p>
+        )}
         <p className="form-title">Login</p>
         <form className="form" onSubmit={handleSubmit} autoComplete="off">
           <div className="input-group">

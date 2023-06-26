@@ -1,23 +1,61 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "./TableProducts.css";
 import EditProduct from "./EditProduct";
 
-function TableProducts({ products }) {
+function TableProducts({ products, render, setRender }) {
+  const handleDelete = async (product) => {
+    try {
+      const response = await axios({
+        method: "DELETE",
+        url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/product/${
+          product.id
+        }`,
+      });
+      console.log("product deleted:", response.data);
+      setRender(render + 1);
+    } catch (error) {
+      console.error("Error at product delete request:", error);
+    }
+  };
+
   return (
     <table className="border table table-dark table-hover text-center mt-3">
       <thead>
         <tr>
-          <th scope="col">id</th>
-          <th scope="col">brand</th>
-          <th scope="col">line</th>
-          <th scope="col">color</th>
-          <th scope="col">name</th>
-          <th scope="col">gender</th>
-          <th scope="col">price</th>
-          <th scope="col">image</th>
-          <th scope="col">stock</th>
-          <th scope="col">trending</th>
-          <th scope="col">actions</th>
+          <th scope="col" className="bg-header">
+            id
+          </th>
+          <th scope="col" className="bg-header">
+            brand
+          </th>
+          <th scope="col" className="bg-header">
+            line
+          </th>
+          <th scope="col" className="bg-header">
+            color
+          </th>
+          <th scope="col" className="bg-header">
+            name
+          </th>
+          <th scope="col" className="bg-header">
+            gender
+          </th>
+          <th scope="col" className="bg-header">
+            price
+          </th>
+          <th scope="col" className="bg-header">
+            image
+          </th>
+          <th scope="col" className="bg-header">
+            stock
+          </th>
+          <th scope="col" className="bg-header">
+            trending
+          </th>
+          <th scope="col" className="bg-header">
+            actions
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -48,7 +86,12 @@ function TableProducts({ products }) {
             <td>{product.trending ? "destacado" : "-"}</td>
             <td>
               <EditProduct product={product} />
-              <img src="/img/trash_icon.svg" alt="edit icon" className="icon" />
+              <img
+                src="/img/trash_icon.svg"
+                alt="edit icon"
+                className="icon"
+                onClick={() => handleDelete(product)}
+              />
             </td>
           </tr>
         ))}

@@ -171,7 +171,7 @@ function CreateProduct() {
                   </Form.Select>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label htmlFor="name" className="ms-2 my-1" value={name}>
+                  <Form.Label htmlFor="name" className="ms-2 my-1">
                     Product name
                   </Form.Label>
                   <Form.Control
@@ -189,7 +189,6 @@ function CreateProduct() {
                   <Form.Label
                     htmlFor="gender"
                     className="ms-2 my-1"
-                    value={gender}
                     required={true}
                   >
                     Gender
