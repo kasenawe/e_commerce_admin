@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setToken } from "../redux/adminSlice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -9,8 +9,10 @@ import { Tooltip } from "antd";
 import "./Login.css";
 
 function Login() {
+  const admin = useSelector((state) => state.admin);
   const [usernameValue, setUsernameValue] = useState("admin");
   const [passwordValue, setPasswordValue] = useState("admin");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -25,11 +27,15 @@ function Login() {
       },
     });
     dispatch(setToken(response.data));
+
     navigate("/");
   }
   return (
     <div className="w-100 container-form">
       <div className="form-container">
+        {admin && (
+          <p className="text-center font-quicksand color-red">{admin}</p>
+        )}
         <p className="form-title">Login</p>
         <form className="form" onSubmit={handleSubmit} autoComplete="off">
           <div className="input-group">
