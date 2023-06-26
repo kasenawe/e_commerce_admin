@@ -65,7 +65,7 @@ function EditLine({ line, render, setRender }) {
         onClick={handleShow}
       />
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton className="bg-dark">
+        <Modal.Header closeButton closeVariant="white" className="bg-dark">
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-dark">

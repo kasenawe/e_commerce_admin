@@ -11,15 +11,9 @@ function EditProduct({ product }) {
   const [lines, setLines] = useState([]);
   const [colors, setColors] = useState([]);
   const [filterLine, setFilterLine] = useState("");
-  // const [product, setProduct] = useState(null);
 
   const handleClose = () => setShow(false);
   const handleShow = async () => {
-    // const response = await axios.get(
-    //   `${import.meta.env.VITE_API_DOMAIN}/product/${productSlug}`
-    // );
-    // setProduct(response.data.product);
-
     setShow(true);
   };
 
@@ -96,15 +90,15 @@ function EditProduct({ product }) {
     formData.append("stock", 50);
 
     await axios({
-      method: "POST",
-      url: "http://localhost:3000/api/admin/product",
+      method: "PATCH",
+      url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/product/${product.id}`,
       data: formData,
       headers: {
         "content-type": "multipart/form-data",
       },
     });
     handleClose();
-    return console.log("El producto se ha creado correctamente!");
+    return console.log("El producto se ha editado correctamente!");
   }
 
   return (
@@ -196,26 +190,14 @@ function EditProduct({ product }) {
                       value={color}
                       onChange={(e) => setColor(e.target.value)}
                       required={true}
+                      disabled={true}
                     >
                       <option
                         key={product.color._id}
                         value={product.color.name}
                       >
-                        {product.color[0].name}
+                        {`${product.color.map((color) => color.name)} ,`}
                       </option>
-                      {colors
-                        .filter(
-                          (colorOption) =>
-                            colorOption.name !== product.color.name
-                        )
-                        .map((colorOption) => (
-                          <option
-                            key={colorOption._id}
-                            value={colorOption.name}
-                          >
-                            {colorOption.name}
-                          </option>
-                        ))}
                     </Form.Select>
                   </Form.Group>
                   <Form.Group>
@@ -230,7 +212,7 @@ function EditProduct({ product }) {
                       name="name"
                       type="text"
                       onChange={(e) => setName(e.target.value)}
-                      value={product.name}
+                      value={name}
                       required={true}
                     />
                   </Form.Group>
