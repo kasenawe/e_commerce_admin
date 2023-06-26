@@ -109,10 +109,10 @@ function CreateProduct() {
         New Product
       </Button>
       <Modal show={show} onHide={handleClose} className="modal-xl">
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className="bg-dark">
           <Modal.Title>New Product</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="bg-dark">
           <Form onSubmit={handleSubmit}>
             <div className="row">
               <div className="col-12 col-sm-12 col-md-6">
