@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useSelector } from "react-redux";
 
 function EditLine({ line, render, setRender }) {
   const [show, setShow] = useState(false);
+  const admin = useSelector((state) => state.admin);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -46,7 +48,7 @@ function EditLine({ line, render, setRender }) {
       data: formData,
       headers: {
         "Content-Type": "multipart/form-data",
-        Authorization: "Bearer " + token,
+        Authorization: "Bearer " + admin.token,
       },
     });
 

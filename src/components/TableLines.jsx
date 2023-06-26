@@ -1,12 +1,48 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import EditLine from "./EditLine";
+import { useSelector } from "react-redux";
 
 function TableLines() {
+  const loggedAdmin = useSelector((state) => state.admin);
   const [lines, setLines] = useState([]);
   const [render, setRender] = useState(0);
 
   let brandSlug = "";
+
+  const notifyRemove = () =>
+    toast.error("Line deleted", {
+      position: "bottom-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+
+  const handleRemoveLine = async (line) => {
+    const deleteLine = async () => {
+      try {
+        await axios.delete(
+          `${import.meta.env.VITE_API_DOMAIN}/api/admin/line/${line.id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${loggedAdmin.token}`,
+            },
+          }
+        );
+        setRender(render + 1);
+        notifyRemove();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    deleteLine();
+  };
 
   useEffect(() => {
     const getLines = async () => {
@@ -20,34 +56,38 @@ function TableLines() {
   }, [render]);
 
   return (
-    <table className="border table table-dark table-hover text-center">
-      <thead>
-        <tr>
-          <th scope="col">Brand</th>
-          <th scope="col">Name</th>
-          <th scope="col">Description</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {lines.length > 0 &&
-          lines.map((line, i) => (
-            <tr key={line.id}>
-              <td>{line.brand.name}</td>
-              <td>{line.name}</td>
-              <td>{line.description.substring(0, 70) + "..."}</td>
-              <td>
-                <EditLine line={line} setRender={setRender} render={render} />
-                <img
-                  src="/img/trash_icon.svg"
-                  alt="edit icon"
-                  className="icon"
-                />
-              </td>
-            </tr>
-          ))}
-      </tbody>
-    </table>
+    <>
+      <table className="border table table-dark table-hover text-center">
+        <thead>
+          <tr>
+            <th scope="col">Brand</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {lines.length > 0 &&
+            lines.map((line, i) => (
+              <tr key={line.id}>
+                <td>{line.brand.name}</td>
+                <td>{line.name}</td>
+                <td>{line.description.substring(0, 70) + "..."}</td>
+                <td>
+                  <EditLine line={line} setRender={setRender} render={render} />
+                  <img
+                    src="/img/trash_icon.svg"
+                    alt="edit icon"
+                    className="icon"
+                    onClick={() => handleRemoveLine(line)}
+                  />
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+      <ToastContainer />
+    </>
   );
 }
 export default TableLines;
