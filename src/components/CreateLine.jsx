@@ -16,10 +16,10 @@ function CreateLine() {
       </div>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className="bg-dark">
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="bg-dark">
           <Form>
             <Form.Label htmlFor="username">Username</Form.Label>
             <Form.Control type="text" id="username" />

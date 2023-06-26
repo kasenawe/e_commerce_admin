@@ -69,10 +69,18 @@ function TableAdmins({ render, setRender }) {
       <table className="table table-dark table-hover">
         <thead>
           <tr>
-            <th scope="col">Username</th>
-            <th scope="col">Firstname</th>
-            <th scope="col">Lastname</th>
-            <th scope="col">Actions</th>
+            <th scope="col" className="bg-header">
+              Username
+            </th>
+            <th scope="col" className="bg-header">
+              Firstname
+            </th>
+            <th scope="col" className="bg-header">
+              Lastname
+            </th>
+            <th scope="col" className="bg-header">
+              Actions
+            </th>
           </tr>
         </thead>
         <tbody>

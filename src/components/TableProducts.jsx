@@ -23,17 +23,39 @@ function TableProducts({ products, render, setRender }) {
     <table className="border table table-dark table-hover text-center mt-3">
       <thead>
         <tr>
-          <th scope="col">id</th>
-          <th scope="col">brand</th>
-          <th scope="col">line</th>
-          <th scope="col">color</th>
-          <th scope="col">name</th>
-          <th scope="col">gender</th>
-          <th scope="col">price</th>
-          <th scope="col">image</th>
-          <th scope="col">stock</th>
-          <th scope="col">trending</th>
-          <th scope="col">actions</th>
+          <th scope="col" className="bg-header">
+            id
+          </th>
+          <th scope="col" className="bg-header">
+            brand
+          </th>
+          <th scope="col" className="bg-header">
+            line
+          </th>
+          <th scope="col" className="bg-header">
+            color
+          </th>
+          <th scope="col" className="bg-header">
+            name
+          </th>
+          <th scope="col" className="bg-header">
+            gender
+          </th>
+          <th scope="col" className="bg-header">
+            price
+          </th>
+          <th scope="col" className="bg-header">
+            image
+          </th>
+          <th scope="col" className="bg-header">
+            stock
+          </th>
+          <th scope="col" className="bg-header">
+            trending
+          </th>
+          <th scope="col" className="bg-header">
+            actions
+          </th>
         </tr>
       </thead>
       <tbody>

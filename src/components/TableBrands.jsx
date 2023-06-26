@@ -1,6 +1,7 @@
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./TableBrands.css";
 
 function TableBrands() {
   const notifyError = () =>
@@ -24,8 +25,12 @@ function TableBrands() {
       <table className="border table table-dark table-hover text-center">
         <thead>
           <tr>
-            <th scope="col">Brand Name</th>
-            <th scope="col">Actions</th>
+            <th scope="col" className="bg-header">
+              Brand Name
+            </th>
+            <th scope="col" className="bg-header">
+              Actions
+            </th>
           </tr>
         </thead>
         <tbody>

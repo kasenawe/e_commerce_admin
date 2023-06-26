@@ -12,29 +12,42 @@ function Login() {
   const admin = useSelector((state) => state.admin);
   const [usernameValue, setUsernameValue] = useState("admin");
   const [passwordValue, setPasswordValue] = useState("admin");
+  const [error, setError] = useState(null); // Estado para almacenar el mensaje de error
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const response = await axios({
-      method: "POST",
-      url: "http://localhost:3000/adm/login",
-      data: {
-        username: usernameValue,
-        password: passwordValue,
-      },
-    });
-    dispatch(setToken(response.data));
+    try {
+      const response = await axios({
+        method: "POST",
+        url: "http://localhost:3000/adm/login",
+        data: {
+          username: usernameValue,
+          password: passwordValue,
+        },
+      });
 
-    navigate("/");
+      if (response.data.error) {
+        // Mostrar error de credenciales inválidas
+        setError(response.data.error);
+      } else {
+        dispatch(setToken(response.data));
+
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
+      setError("Error en el servidor");
+    }
   }
+
   return (
     <div className="w-100 container-form">
       <div className="form-container">
-        {admin && (
-          <p className="text-center font-quicksand color-red">{admin}</p>
+        {error && (
+          <p className="text-center font-quicksand color-red">{error}</p>
         )}
         <p className="form-title">Login</p>
         <form className="form" onSubmit={handleSubmit} autoComplete="off">

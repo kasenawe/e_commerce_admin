@@ -5,11 +5,21 @@ function TableUsers() {
     <table className="border table table-dark table-hover text-center">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Firstname</th>
-          <th scope="col">Lastname</th>
-          <th scope="col">email</th>
-          <th scope="col">Actions</th>
+          <th scope="col" className="bg-header">
+            #
+          </th>
+          <th scope="col" className="bg-header">
+            Firstname
+          </th>
+          <th scope="col" className="bg-header">
+            Lastname
+          </th>
+          <th scope="col" className="bg-header">
+            email
+          </th>
+          <th scope="col" className="bg-header">
+            Actions
+          </th>
         </tr>
       </thead>
       <tbody>
