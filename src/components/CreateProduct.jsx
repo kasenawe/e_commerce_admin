@@ -103,8 +103,8 @@ function CreateProduct() {
         <div className="btn-content">New Product</div>
       </div>
       <Modal show={show} onHide={handleClose} className="modal-xl">
-        <Modal.Header closeButton className="bg-dark">
-          <Modal.Title>New Product</Modal.Title>
+        <Modal.Header closeButton closeVariant="white" className="bg-dark">
+          <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-dark">
           <Form onSubmit={handleSubmit}>

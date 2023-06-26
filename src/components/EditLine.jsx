@@ -108,12 +108,16 @@ function EditLine({ line, render, setRender }) {
             />
             <div className="d-flex"></div>
             <div className="d-flex gap-2 mt-3 justify-content-end">
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button type="submit" variant="primary">
-                Save Changes
-              </Button>
+              <div className="btn float-end my-3" onClick={handleClose}>
+                <div className="btn-content">Close</div>
+              </div>
+              <div
+                type="submit"
+                className="btn float-end my-3"
+                onClick={handleShow}
+              >
+                <div className="btn-content">Save Changes</div>
+              </div>
             </div>
           </Form>
         </Modal.Body>

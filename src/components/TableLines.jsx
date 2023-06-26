@@ -5,10 +5,9 @@ import "react-toastify/dist/ReactToastify.css";
 import EditLine from "./EditLine";
 import { useSelector } from "react-redux";
 
-function TableLines() {
-  const loggedAdmin = useSelector((state) => state.admin);
+function TableLines({ render, setRender }) {
   const [lines, setLines] = useState([]);
-  const [render, setRender] = useState(0);
+  const loggedAdmin = useSelector((state) => state.admin);
 
   let brandSlug = "";
 
