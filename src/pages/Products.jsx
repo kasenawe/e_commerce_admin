@@ -19,8 +19,8 @@ function Products() {
 
   return (
     <>
-      <div className="text-center">
-        <h1 className="mt-2">Products</h1>
+      <div className="text-center margin5">
+        <h1 className="mt-2 family-pinyon">Products</h1>
         <CreateProduct />
         <TableProducts products={products} />
       </div>

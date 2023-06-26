@@ -5,8 +5,8 @@ import Button from "react-bootstrap/Button";
 function Lines() {
   return (
     <>
-      <div className="text-center">
-        <h1 className="mt-2">Lines</h1>
+      <div className="text-center margin5">
+        <h1 className="mt-2 family-pinyon">Lines</h1>
         <Button variant="primary" className="float-end adminButton mb-2">
           Add New Line
         </Button>

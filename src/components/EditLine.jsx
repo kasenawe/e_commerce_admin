@@ -69,6 +69,7 @@ function EditLine({ line, render, setRender }) {
         <Modal.Body>
           <Form onSubmit={(event) => handleEditLine(event)}>
             <Form.Label htmlFor="brand">Brand</Form.Label>
+
             <Form.Select
               aria-label="Default select example"
               value={brandValue}
@@ -80,6 +81,7 @@ function EditLine({ line, render, setRender }) {
                   <option key={brand.id}>{brand.name}</option>
                 ))}
             </Form.Select>
+
             <Form.Label htmlFor="firstname">Name</Form.Label>
             <Form.Control
               type="text"

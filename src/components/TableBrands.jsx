@@ -5,24 +5,19 @@ function TableBrands() {
     <table className="border table table-dark table-hover text-center">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Brand Name</th>
-
           <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row">1</th>
           <td>Rolex</td>
-
           <td>
             <img src="/img/edit_icon.svg" alt="edit icon" className="icon" />
             <img src="/img/trash_icon.svg" alt="edit icon" className="icon" />
           </td>
         </tr>
         <tr>
-          <th scope="row">1</th>
           <td>Victorinox Swiss Army</td>
 
           <td>
@@ -31,7 +26,6 @@ function TableBrands() {
           </td>
         </tr>
         <tr>
-          <th scope="row">1</th>
           <td>Patek Philippe</td>
 
           <td>
@@ -40,7 +34,6 @@ function TableBrands() {
           </td>
         </tr>
         <tr>
-          <th scope="row">1</th>
           <td>Omega</td>
 
           <td>

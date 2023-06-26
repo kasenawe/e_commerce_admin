@@ -41,14 +41,9 @@ function CreateAdmin({ render, setRender }) {
   }
   return (
     <>
-      <Button
-        variant="primary"
-        className="float-end adminButton mb-2"
-        onClick={handleShow}
-      >
-        New Admin
-      </Button>
-
+      <div className="btn float-end my-3" onClick={handleShow}>
+        <div className="btn-content"> New Admin</div>
+      </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>

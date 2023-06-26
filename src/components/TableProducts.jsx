@@ -17,16 +17,12 @@ function TableProducts({ products }) {
           <th scope="col">image</th>
           <th scope="col">stock</th>
           <th scope="col">trending</th>
-          {/* <th scope="col">description</th> */}
-          {/* <th scope="col">slug</th> */}
-          {/* <th scope="col">createdAt</th>
-          <th scope="col">updatedAt</th> */}
           <th scope="col">actions</th>
         </tr>
       </thead>
       <tbody>
         {products.map((product) => (
-          <tr>
+          <tr key={product.id}>
             <th scope="row">{product.id}</th>
             <td>{product.brand.name}</td>
             <td>{product.line.name}</td>
@@ -50,12 +46,7 @@ function TableProducts({ products }) {
             </td>
             <td>{product.stock}</td>
             <td>{product.trending ? "destacado" : "-"}</td>
-            {/* <td>{product.description}</td> */}
-            {/* <td>{product.slug}</td>
-            <td> {product.createdAt}</td>
-            <td>{product.updatedAt}</td> */}
             <td>
-              {/* <CreateProduct /> */}
               <img src="/img/trash_icon.svg" alt="edit icon" className="icon" />
             </td>
           </tr>

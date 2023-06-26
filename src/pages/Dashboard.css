@@ -1,6 +1,6 @@
 .card-header-text {
   font-size: 1rem;
-  color: darkgray;
+  color: var(--color-white);
 }
 
 .circle {
@@ -14,8 +14,8 @@
 }
 
 .img-icons {
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
 }
 
 .card-quantity-numbers {
@@ -29,6 +29,7 @@
 .card-reference-text-grey {
   font-size: 0.7rem;
   color: grey;
+  text-align: right;
 }
 
 h1 {
@@ -44,4 +45,42 @@ a {
   text-decoration: none;
   color: grey;
 }
+.card-body-dash {
+  background-color: var(--color-gray);
+}
 
+.card-dash,
+.card-dash-table {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid var(--color-white);
+  padding: 1rem;
+  background-color: #212529;
+}
+.card-dash-table {
+  width: 500px;
+}
+.card-section,
+.card-section-low {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+.border-b {
+  border-bottom: 1px solid var(--color-white);
+}
+.card-text {
+  font-size: 25px;
+}
+.card-title {
+  font-size: 30px;
+}
+.card-section-low {
+  flex-direction: column;
+}

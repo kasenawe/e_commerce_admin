@@ -1,8 +1,6 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import "./Sidemenu.css"; // Importa el archivo CSS
-import ListGroup from "react-bootstrap/ListGroup";
+import "./Sidemenu.css";
 import { Link } from "react-router-dom";
 
 function Sidemenu() {
@@ -13,62 +11,64 @@ function Sidemenu() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Manage
-      </Button>
+      <div className="btn" onClick={handleShow}>
+        <div className="btn-content"> Manage</div>
+      </div>
       <Offcanvas show={show} onHide={handleClose} placement="start">
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>
-            <h5>Management</h5>
-          </Offcanvas.Title>
+        <Offcanvas.Header
+          closeButton
+          data-bs-theme="dark"
+          className="pt-2 pb-0 px-4 offcanvas-header"
+        >
+          <span className="offcanvas-brand">KAIROS Management</span>
         </Offcanvas.Header>
 
-        <Offcanvas.Body>
-          <ListGroup as={"ul"} className="border border-0 bg-transparent ms-4">
-            <Link to={"/"}>Dashboard</Link>{" "}
-            <ListGroup.Item
-              as={"li"}
-              className="border border-0 bg-transparent py-1"
-            >
-              <Link to={"/brands"}>Brands</Link>{" "}
-            </ListGroup.Item>
-            <ListGroup.Item
-              as={"li"}
-              className="border border-0 bg-transparent py-1"
-            >
-              <Link to={"/lines"}>Lines</Link>{" "}
-            </ListGroup.Item>
-            <ListGroup.Item
-              as={"li"}
-              className="border border-0 bg-transparent py-1"
-            >
-              <Link to={"/colors"}>Colors</Link>{" "}
-            </ListGroup.Item>
-            <ListGroup.Item
-              as={"li"}
-              className="border border-0 bg-transparent py-1"
-            >
-              <Link to={"/products"}>Products</Link>{" "}
-            </ListGroup.Item>
-            <ListGroup.Item
-              as={"li"}
-              className="border border-0 bg-transparent py-1"
-            >
-              <Link to={"/orders"}>Orders</Link>{" "}
-            </ListGroup.Item>
-            <ListGroup.Item
-              as={"li"}
-              className="border border-0 bg-transparent py-1"
-            >
-              <Link to={"/users"}>Users</Link>{" "}
-            </ListGroup.Item>
-            <ListGroup.Item
-              as={"li"}
-              className="border border-0 bg-transparent py-1"
-            >
-              <Link to={"/admins"}>Admins</Link>{" "}
-            </ListGroup.Item>
-          </ListGroup>
+        <Offcanvas.Body className="d-flex flex-column align-items-start mx-5 p-0">
+          <Link className="justify-content-start fw-bold mt-3 btn-nav" to="/">
+            Dashboard
+          </Link>
+          <Link
+            className="justify-content-start fw-bold mt-3 btn-nav"
+            to="/admins"
+          >
+            Administrators
+          </Link>
+          <Link
+            className="justify-content-start fw-bold mt-3 btn-nav"
+            to="/brands"
+          >
+            Brands
+          </Link>
+          <Link
+            className="justify-content-start fw-bold mt-3 btn-nav"
+            to="/colors"
+          >
+            Colors
+          </Link>
+          <Link
+            className="justify-content-start fw-bold mt-3 btn-nav"
+            to="/lines"
+          >
+            Lines
+          </Link>
+          <Link
+            className="justify-content-start fw-bold mt-3 btn-nav"
+            to="/orders"
+          >
+            Orders
+          </Link>
+          <Link
+            className="justify-content-start fw-bold mt-3 btn-nav"
+            to="/products"
+          >
+            Products
+          </Link>
+          <Link
+            className="justify-content-start fw-bold mt-3 btn-nav"
+            to="/Users"
+          >
+            Users
+          </Link>
         </Offcanvas.Body>
       </Offcanvas>
     </>

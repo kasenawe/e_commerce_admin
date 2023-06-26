@@ -8,8 +8,8 @@ function Admins() {
 
   return (
     <>
-      <div className="text-center">
-        <h1 className="mt-2">Admins</h1>
+      <div className="text-center margin5">
+        <h1 className="mt-2 family-pinyon">Administrators</h1>
 
         <CreateAdmin render={render} setRender={setRender} />
 

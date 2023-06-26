@@ -5,11 +5,11 @@ import Button from "react-bootstrap/Button";
 function Users() {
   return (
     <>
-      <div className="text-center">
-        <h1 lassName="mt-2">Users</h1>
-        <Button variant="primary" className="float-end adminButton mb-2">
-          Add New User
-        </Button>
+      <div className="text-center margin5">
+        <h1 className="mt-2 family-pinyon">Users</h1>
+        <div className="btn float-end my-3">
+          <div className="btn-content">Add New User</div>
+        </div>
         <TableUsers />
       </div>
     </>

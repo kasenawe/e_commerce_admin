@@ -1,4 +1,3 @@
-import "./CreateProduct.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Form } from "react-bootstrap";

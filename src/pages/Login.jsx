@@ -1,18 +1,16 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setToken } from "../redux/adminSlice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Tooltip } from "antd";
 
 import "./Login.css";
 
 function Login() {
-  const [usernameValue, setUsernameValue] = useState("");
-  const [passwordValue, setPasswordValue] = useState("");
+  const [usernameValue, setUsernameValue] = useState("admin");
+  const [passwordValue, setPasswordValue] = useState("admin");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -27,60 +25,46 @@ function Login() {
       },
     });
     dispatch(setToken(response.data));
-    console.log(response.data);
     navigate("/");
   }
   return (
-    <Container>
-      <Row>
-        <Col>
-          <div className="border">
-            <form
-              className="container m-5 col-10"
-              method="post"
-              action="/api/admin/login"
-              onSubmit={handleSubmit}
-            >
-              <h2>Login</h2>
-              <p>Welcome to Kairos</p>
-              <div className="row mt-5 g-3 mb-3">
-                <div className="col-12">
-                  <label htmlFor="username" className="form-label">
-                    Username
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="username"
-                    placeholder="username"
-                    value={usernameValue}
-                    onChange={(event) => setUsernameValue(event.target.value)}
-                  />
-                </div>
-                <div className="col-12">
-                  <label htmlFor="password" className="form-label">
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    name="password"
-                    placeholder="Password"
-                    value={passwordValue}
-                    onChange={(event) => setPasswordValue(event.target.value)}
-                  />
-                </div>
-
-                <button type="submit">Login</button>
-                <p>
-                  Don't have an account? <a href="/signup">Sign Up</a>
-                </p>
-              </div>
-            </form>
+    <div className="w-100 container-form">
+      <div className="form-container">
+        <p className="form-title">Login</p>
+        <form className="form" onSubmit={handleSubmit} autoComplete="off">
+          <div className="input-group">
+            <label htmlFor="username">Username</label>
+            <input
+              type="username"
+              name="username"
+              id="username"
+              placeholder="admin"
+              value={usernameValue}
+              onChange={(event) => setUsernameValue(event.target.value)}
+            />
           </div>
-        </Col>
-      </Row>
-    </Container>
+          <div className="input-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="admin"
+              value={passwordValue}
+              onChange={(event) => setPasswordValue(event.target.value)}
+            />
+            <div className="forgot">
+              <Tooltip placement="left" title="Out of the scope of the proyect">
+                Forgot Password?
+              </Tooltip>
+            </div>
+          </div>
+          <button className="sign" type="submit">
+            Sign in
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
 

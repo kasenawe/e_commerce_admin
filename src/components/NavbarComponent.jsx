@@ -5,6 +5,8 @@ import Sidemenu from "./Sidemenu";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeToken } from "../redux/adminSlice";
+import "./NavbarComponent.css";
+import { NavbarBrand } from "react-bootstrap";
 
 function NavbarComponent() {
   const admin = useSelector((state) => state.admin);
@@ -16,21 +18,32 @@ function NavbarComponent() {
   }
   return (
     <>
-      <Navbar bg="dark" variant="dark">
-        <Container className="w-75 mx-auto px-5">
-          <Navbar.Brand to="/">
+      <Navbar className="navbar-project">
+        <Container className="w-75 mx-auto p-0 nav-container">
+          <div className="nav-brands-left">
             <Sidemenu />
-            {admin && <small className="mx-3">{admin.username}</small>}
             {admin && (
-              <Link
-                className="btn btn-danger rounded-pill fw-medium mb-4 w-75"
-                to="/login"
-                onClick={handleLogout}
-              >
-                Log out
+              <div className="d-flex align-items-center">
+                <small className="text-center font-quicksand color-red">
+                  Logged as: {admin.username}
+                </small>
+              </div>
+            )}
+          </div>
+          <div>
+            <Navbar.Brand>
+              <Link to="/" className="text-nabvar-brand">
+                Kairos Management Tool
+              </Link>
+            </Navbar.Brand>
+          </div>
+          <div className="nav-brands-right">
+            {admin && (
+              <Link className="btn" to="/login" onClick={handleLogout}>
+                <div className="btn-content">Logout</div>
               </Link>
             )}
-          </Navbar.Brand>
+          </div>
         </Container>
       </Navbar>
     </>

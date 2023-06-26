@@ -5,8 +5,8 @@ import Button from "react-bootstrap/Button";
 function Brands() {
   return (
     <>
-      <div className="text-center">
-        <h1 className="mt-2">Brands</h1>
+      <div className="text-center margin5">
+        <h1 className="mt-2 family-pinyon">Brands</h1>
         <Button variant="primary" className="float-end adminButton mb-2">
           Add New Brand
         </Button>
