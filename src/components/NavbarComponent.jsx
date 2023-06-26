@@ -9,6 +9,7 @@ import "./NavbarComponent.css";
 
 function NavbarComponent() {
   const admin = useSelector((state) => state.admin);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   function handleLogout() {
@@ -21,13 +22,12 @@ function NavbarComponent() {
         <Container className="w-75 mx-auto p-0 nav-container">
           <div className="nav-brands-left">
             <Sidemenu />
-            {admin && (
-              <div className="d-flex align-items-center">
-                <small className="text-center font-quicksand color-red">
-                  Logged as: {admin.username}
-                </small>
-              </div>
-            )}
+
+            <div className="d-flex align-items-center">
+              <small className="text-center font-quicksand color-red">
+                {admin ? "Logged as:" + admin.username : "Not logged in"}
+              </small>
+            </div>
           </div>
           <div>
             <Navbar.Brand>

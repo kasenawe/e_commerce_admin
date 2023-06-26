@@ -24,9 +24,15 @@ function TableColors() {
       <table className="border table table-dark table-hover text-center">
         <thead>
           <tr>
-            <th scope="col">Color Name</th>
-            <th scope="col">Color Code</th>
-            <th scope="col">Actions</th>
+            <th scope="col" className="bg-header">
+              Color Name
+            </th>
+            <th scope="col" className="bg-header">
+              Color Code
+            </th>
+            <th scope="col" className="bg-header">
+              Actions
+            </th>
           </tr>
         </thead>
         <tbody>

@@ -5,10 +5,9 @@ import "react-toastify/dist/ReactToastify.css";
 import EditLine from "./EditLine";
 import { useSelector } from "react-redux";
 
-function TableLines() {
-  const loggedAdmin = useSelector((state) => state.admin);
+function TableLines({ render, setRender }) {
   const [lines, setLines] = useState([]);
-  const [render, setRender] = useState(0);
+  const loggedAdmin = useSelector((state) => state.admin);
 
   let brandSlug = "";
 
@@ -60,10 +59,18 @@ function TableLines() {
       <table className="border table table-dark table-hover text-center">
         <thead>
           <tr>
-            <th scope="col">Brand</th>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Actions</th>
+            <th scope="col" className="bg-header">
+              Brand
+            </th>
+            <th scope="col" className="bg-header">
+              Name
+            </th>
+            <th scope="col" className="bg-header">
+              Description
+            </th>
+            <th scope="col" className="bg-header">
+              Actions
+            </th>
           </tr>
         </thead>
         <tbody>
