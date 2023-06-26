@@ -59,8 +59,6 @@ function EditProduct({ product }) {
     getColors();
   }, []);
 
-  const navigate = useNavigate();
-  console.log(product);
   const [line, setLine] = useState(product.line.name);
   const [brand, setBrand] = useState(product.brand.name);
   const [color, setColor] = useState(product.color.name);
@@ -117,8 +115,8 @@ function EditProduct({ product }) {
       />
       {product && (
         <Modal show={show} onHide={handleClose} className="modal-xl">
-          <Modal.Header closeButton className="bg-dark">
-            <Modal.Title>Edit Product</Modal.Title>
+          <Modal.Header closeButton closeVariant="white" className="bg-dark">
+            <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
           <Modal.Body className="bg-dark">
             <Form onSubmit={handleSubmit}>

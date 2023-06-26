@@ -65,10 +65,10 @@ function EditLine({ line, render, setRender }) {
         onClick={handleShow}
       />
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton closeVariant="white" className="bg-dark">
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="bg-dark">
           <Form onSubmit={(event) => handleEditLine(event)}>
             <Form.Label htmlFor="brand">Brand</Form.Label>
 
