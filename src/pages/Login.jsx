@@ -20,13 +20,14 @@ function Login() {
     event.preventDefault();
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/api/admin/login",
+      url: "http://localhost:3000/adm/login",
       data: {
         username: usernameValue,
         password: passwordValue,
       },
     });
     dispatch(setToken(response.data));
+    console.log(response.data);
     navigate("/");
   }
   return (
@@ -70,9 +71,7 @@ function Login() {
                   />
                 </div>
 
-                <button type="submit" className="btn rounded-pill text-white">
-                  Login
-                </button>
+                <button type="submit">Login</button>
                 <p>
                   Don't have an account? <a href="/signup">Sign Up</a>
                 </p>

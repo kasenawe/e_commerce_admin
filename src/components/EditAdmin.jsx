@@ -5,26 +5,23 @@ import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
-function EditAdmin({ username }) {
+function EditAdmin({ adminRow, render, setRender }) {
+  const admin = useSelector((state) => state.admin);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const admin = useSelector((state) => state.admin);
-  const adminId = admin.id;
-
-  //corregir esto
-  const [usernameValue, setUsername] = useState(admin.username);
+  const [usernameValue, setUsername] = useState(adminRow.username);
   const [passwordValue, setPassword] = useState("");
-  const [firstnameValue, setFirstname] = useState(admin.username);
-  const [lastnameValue, setLastname] = useState(admin.lastname);
+  const [firstnameValue, setFirstname] = useState(adminRow.firstname);
+  const [lastnameValue, setLastname] = useState(adminRow.lastname);
 
   const handleEditAdmin = async (event) => {
     event.preventDefault();
     await axios({
-      method: "UPDATE",
-      url: `${import.meta.env.VITE_API_DOMAIN}/api/${admin.username}`,
+      method: "PATCH",
+      url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/${adminRow.username}`,
       data: {
         firstname: firstnameValue,
         lastname: lastnameValue,
@@ -32,10 +29,13 @@ function EditAdmin({ username }) {
         password: passwordValue,
         role_code: "100",
       },
+      headers: {
+        Authorization: `Bearer ${admin.token}`,
+      },
     });
 
     handleClose();
-    navigate("/admins");
+    setRender(render + 1);
   };
 
   return (
