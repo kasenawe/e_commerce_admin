@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
 
-function CreateProduct(render, setRender) {
+function CreateProduct({ render, setRender }) {
   const loggedAdmin = useSelector((state) => state.admin);
   const [show, setShow] = useState(false);
   const [brands, setBrands] = useState([]);
