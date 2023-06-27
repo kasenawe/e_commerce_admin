@@ -5,13 +5,16 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
 
-function CreateProduct() {
+function CreateProduct(render, setRender) {
   const loggedAdmin = useSelector((state) => state.admin);
   const [show, setShow] = useState(false);
   const [brands, setBrands] = useState([]);
   const [lines, setLines] = useState([]);
-  const [colors, setColors] = useState([]);
   const [filterLine, setFilterLine] = useState([]);
+  const [newColors, setNewColors] = useState([]);
+  const [newColorsNames, setNewColorsNames] = useState([]);
+  const [allColors, setAllColors] = useState([]);
+  const [tempColors, setTempColors] = useState([]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -56,7 +59,8 @@ function CreateProduct() {
           Authorization: `Bearer ${loggedAdmin.token}`,
         },
       });
-      setColors(response.data);
+      setAllColors(response.data);
+      setTempColors(response.data);
     };
     getColors();
   }, []);
@@ -68,7 +72,6 @@ function CreateProduct() {
 
   const [line, setLine] = useState("");
   const [brand, setBrand] = useState("");
-  const [color, setColor] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [gender, setGender] = useState("");
@@ -83,17 +86,19 @@ function CreateProduct() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const formData = new FormData();
-    formData.append("brand", brand);
-    formData.append("line", line);
-    formData.append("color", color);
-    formData.append("name", name);
-    formData.append("description", description);
-    formData.append("gender", gender);
-    formData.append("price", price);
-    formData.append("trending", trending);
-    formData.append("image", image);
-    formData.append("stock", 50);
+
+    const formData = {
+      brand: brand,
+      line: line,
+      color: newColors,
+      name: name,
+      description: description,
+      gender: gender,
+      price: price,
+      trending: trending,
+      image: image,
+      stock: 50,
+    };
 
     await axios({
       method: "POST",
@@ -104,9 +109,32 @@ function CreateProduct() {
         Authorization: `Bearer ${loggedAdmin.token}`,
       },
     });
+
+    setRender(render + 1);
     handleClose();
     return console.log("El producto se ha creado correctamente!");
   }
+
+  const handleChange = (e) => {
+    setNewColors([...newColors, e.target.value]);
+    setNewColorsNames([
+      ...newColorsNames,
+      tempColors.find((item) => item.id === e.target.value).name,
+    ]);
+    setTempColors(tempColors.filter((color) => color.id !== e.target.value));
+  };
+
+  const handleRemove = (colorName) => {
+    const selectedColor = allColors.find((color) => color.name === colorName);
+    setNewColors(newColors.filter((colorId) => colorId !== selectedColor.id));
+    setNewColorsNames(
+      newColorsNames.filter((colorName) => colorName !== selectedColor.name)
+    );
+    setTempColors([
+      ...tempColors,
+      { id: selectedColor.id, name: selectedColor.name },
+    ]);
+  };
 
   return (
     <>
@@ -161,21 +189,39 @@ function CreateProduct() {
                     ))}
                   </Form.Select>
                 </Form.Group>
-                <Form.Group>
-                  <Form.Label htmlFor="color" className="ms-2 my-1">
-                    Color
+                <Form.Group action="">
+                  <div className="shadow rounded mt-4 ms-2 mb-2">
+                    {newColorsNames.length > 0
+                      ? newColorsNames.map((color) => (
+                          <span
+                            key={color}
+                            style={{
+                              backgroundColor: allColors.find(
+                                (item) => item.name === color
+                              ).colorCode,
+                              color: "#383838",
+                            }}
+                            className="me-2 p-2 rounded shadow"
+                            onClick={() => handleRemove(color)}
+                          >
+                            {color} <sup className="ms-1 fw-bold">X</sup>
+                          </span>
+                        ))
+                      : "S/C"}
+                  </div>
+
+                  <Form.Label htmlFor="line" className="ms-2 my-1">
+                    Colors
                   </Form.Label>
                   <Form.Select
-                    aria-label="Default select example"
-                    className="filter-selector"
                     name="color"
-                    value={color}
-                    onChange={(e) => setColor(e.target.value)}
+                    id="color"
+                    onInput={handleChange}
                     required={true}
                   >
-                    <option value=""></option>
-                    {colors.map((color) => (
-                      <option key={color._id} value={color.name}>
+                    <option>Seleccionar color...</option>
+                    {tempColors.map((color) => (
+                      <option key={color.id} value={color.id}>
                         {color.name}
                       </option>
                     ))}

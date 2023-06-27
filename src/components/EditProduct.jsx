@@ -113,6 +113,7 @@ function EditProduct({ product, render, setRender }) {
         Authorization: `Bearer ${loggedAdmin.token}`,
       },
     });
+
     handleClose();
     setRender(render + 1);
     return console.log("El producto se ha editado correctamente!");
@@ -226,6 +227,7 @@ function EditProduct({ product, render, setRender }) {
                                 backgroundColor: allColors.find(
                                   (item) => item.name === color
                                 ).colorCode,
+                                color: "#383838",
                               }}
                               className="me-2 p-2 rounded shadow"
                               onClick={() => handleRemove(color)}

@@ -22,7 +22,7 @@ function Products() {
     <>
       <div className="text-center margin5">
         <h1 className="mt-2 family-pinyon">Products</h1>
-        <CreateProduct />
+        <CreateProduct render={render} setRender={setRender} />
         <TableProducts
           products={products}
           render={render}
