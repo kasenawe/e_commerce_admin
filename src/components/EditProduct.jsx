@@ -258,7 +258,7 @@ function EditProduct({ product, render, setRender }) {
 
                   <Form.Group>
                     <Form.Label htmlFor="name" className="ms-2 my-1">
-                      Product name
+                      Name
                     </Form.Label>
                     <Form.Control
                       name="name"
@@ -322,7 +322,7 @@ function EditProduct({ product, render, setRender }) {
                   </Form.Group>
                   <Form.Group>
                     <Form.Label htmlFor="image" className="ms-2 my-1">
-                      Product image
+                      Image
                     </Form.Label>
                     <Form.Control
                       id="image"
@@ -336,7 +336,7 @@ function EditProduct({ product, render, setRender }) {
                 <div className="col-12">
                   <Form.Group>
                     <Form.Label htmlFor="description" className="ms-2 my-1">
-                      Product description
+                      Description
                     </Form.Label>
                     <Form.Control
                       as="textarea"

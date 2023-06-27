@@ -1,30 +1,12 @@
-import { useState } from "react";
-import Offcanvas from "react-bootstrap/Offcanvas";
 import "./Sidemenu.css";
 import { Link } from "react-router-dom";
 
 function Sidemenu() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   return (
     <>
-      <div className="btn" onClick={handleShow}>
-        <div className="btn-content"> Manage</div>
-      </div>
-      <Offcanvas show={show} onHide={handleClose} placement="start">
-        <Offcanvas.Header
-          closeButton
-          data-bs-theme="dark"
-          className="pt-2 pb-0 px-4 offcanvas-header"
-        >
-          <span className="offcanvas-brand">KAIROS Management</span>
-        </Offcanvas.Header>
-
-        <Offcanvas.Body className="d-flex flex-column align-items-start mx-5 p-0">
-          <Link className="justify-content-start fw-bold mt-3 btn-nav" to="/">
+      <div className="sidebar" style={{ marginTop: "80px" }}>
+        <div className="d-flex flex-column align-items-start mx-5 link-sidebar-zone">
+          <Link className="justify-content-start fw-bold btn-nav" to="/">
             Dashboard
           </Link>
           <Link
@@ -69,8 +51,8 @@ function Sidemenu() {
           >
             Users
           </Link>
-        </Offcanvas.Body>
-      </Offcanvas>
+        </div>
+      </div>
     </>
   );
 }

@@ -17,35 +17,25 @@ function NavbarComponent() {
     navigate("/login");
   }
   return (
-    <>
-      <Navbar className="navbar-project">
-        <Container className="w-75 mx-auto p-0 nav-container">
-          <div className="nav-brands-left">
-            <Sidemenu />
-
-            <div className="d-flex align-items-center">
-              <small className="text-center font-quicksand color-red">
-                {admin ? "Logged as:" + admin.username : "Not logged in"}
-              </small>
-            </div>
+    <Navbar>
+      <Container>
+        <div>
+          <div className="d-flex align-items-center">
+            <small className=" font-quicksand color-red">
+              {admin ? "Logged as:" + admin.username : "Not logged in"}
+            </small>
           </div>
-          <div>
-            <Navbar.Brand>
-              <Link to="/" className="text-nabvar-brand">
-                Kairos Management Tool
-              </Link>
-            </Navbar.Brand>
-          </div>
-          <div className="nav-brands-right">
-            {admin && (
-              <Link className="btn" to="/login" onClick={handleLogout}>
-                <div className="btn-content">Logout</div>
-              </Link>
-            )}
-          </div>
-        </Container>
-      </Navbar>
-    </>
+        </div>
+        <div>KRONOS ADMIN</div>
+        <div className="">
+          {admin && (
+            <Link className="btn" to="/login" onClick={handleLogout}>
+              <div className="btn-content">Logout</div>
+            </Link>
+          )}
+        </div>
+      </Container>
+    </Navbar>
   );
 }
 
