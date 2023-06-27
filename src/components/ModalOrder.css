@@ -1,0 +1,16 @@
+.view-order {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.modal-bg {
+  background-color: var(--color-black-transparent);
+}
+
+.modal-btn {
+  color: var(--color-black);
+  background-color: var(--color-white);
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 7px;
+}

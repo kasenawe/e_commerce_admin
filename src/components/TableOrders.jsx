@@ -1,39 +1,55 @@
 import React from "react";
+import { useState } from "react";
 
-function TableOrders() {
+import ModalOrder from "./ModalOrder";
+
+function TableOrders({ orders, render, setRender }) {
   return (
     <table className="border table table-dark table-hover text-center">
       <thead>
         <tr>
           <th scope="col" className="bg-header">
-            #
+            ID
           </th>
           <th scope="col" className="bg-header">
-            Date
+            Fullname
           </th>
           <th scope="col" className="bg-header">
-            Client
-          </th>
-          <th scope="col" className="bg-header">
-            Address
+            Order
           </th>
           <th scope="col" className="bg-header">
             Status
           </th>
           <th scope="col" className="bg-header">
-            Total Price
+            Address
+          </th>
+          <th scope="col" className="bg-header">
+            CreatedAt
+          </th>
+          <th scope="col" className="bg-header">
+            Total
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>16-06-2023</td>
-          <td>Rupert Lopez</td>
-          <td>Rivera 1415</td>
-          <td>Delivered</td>
-          <td>$500</td>
-        </tr>
+        {orders.map((order) => (
+          <tr key={order.id}>
+            <td scope="row">{order.id}</td>
+            <td>{order.fullname}</td>
+            <td>
+              <ModalOrder
+                products={order.order}
+                order={order}
+                setRender={setRender}
+                render={render}
+              />
+            </td>
+            <td>{order.status}</td>
+            <td>{order.address}</td>
+            <td>{order.createdAt.slice(0, 10)}</td>
+            <td>{order.totalPrice}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );
