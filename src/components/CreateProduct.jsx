@@ -101,6 +101,7 @@ function CreateProduct() {
       data: formData,
       headers: {
         "content-type": "multipart/form-data",
+        Authorization: `Bearer ${loggedAdmin.token}`,
       },
     });
     handleClose();
