@@ -28,18 +28,9 @@ function Orders() {
   }, [render]);
 
   return (
-    <Container fluid>
-      <Row>
-        {admin && (
-          <Col xs={12} md={2} lg={2}>
-            <Sidemenu />
-          </Col>
-        )}
-        <Col xs={12} md={10} lg={10}>
-          <TableOrders orders={orders} render={render} setRender={setRender} />
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <TableOrders orders={orders} render={render} setRender={setRender} />
+    </>
   );
 }
 
