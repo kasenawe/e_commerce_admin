@@ -114,27 +114,7 @@ function Sidemenu() {
               </Link>
             </div>
           </div>
-          <div className="d-flex justify-content-center align-items-center mt-4">
-            <div>
-              <i
-                className={` ${
-                  currentView === "/orders"
-                    ? "bi bi-table fw-bold link-activo-sidebar me-3"
-                    : "bi bi-table fw-bold text-secondary  me-3"
-                }`}
-              ></i>
-            </div>
-            <div>
-              <Link
-                className={`fw-bold mt-3 btn-nav ${
-                  currentView === "/orders" ? "link-activo-sidebar" : ""
-                }`}
-                to="/orders"
-              >
-                Orders
-              </Link>
-            </div>
-          </div>
+
           <div className="d-flex justify-content-center align-items-center mt-4">
             <div>
               <i
