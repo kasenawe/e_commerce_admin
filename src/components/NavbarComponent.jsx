@@ -17,11 +17,11 @@ function NavbarComponent() {
     navigate("/login");
   }
   return (
-    <Navbar>
+    <Navbar className="navbar-component">
       <Container fluid>
         <div>
-          <div className="d-flex align-items-center position-fixed">
-            <small className=" font-quicksand color-red">
+          <div className="d-flex align-items-center">
+            <small className="font-quicksand color-red">
               {admin ? "Logged as:" + admin.username : "Not logged in"}
             </small>
           </div>
@@ -31,7 +31,7 @@ function NavbarComponent() {
             Kairos Admin
           </Link>
         </Navbar.Brand>
-        <div className="">
+        <div className="login-button">
           {admin && (
             <Link className="btn" to="/login" onClick={handleLogout}>
               <div className="btn-content">Logout</div>

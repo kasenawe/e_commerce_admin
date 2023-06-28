@@ -23,7 +23,7 @@ function App() {
   const admin = useSelector((state) => state.admin);
 
   return (
-    <div className="mx-5">
+    <div className="general-padding">
       <NavbarComponent />
       <Routes>
         <Route element={<ProtectedRoute />}>

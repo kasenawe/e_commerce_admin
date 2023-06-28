@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
 
@@ -53,7 +52,7 @@ function EditLine({ line, render, setRender }) {
     });
 
     setRender(render + 1);
-    handleClose();
+    return handleClose();
   };
 
   return (
@@ -111,10 +110,11 @@ function EditLine({ line, render, setRender }) {
               <div className="btn float-end my-3" onClick={handleClose}>
                 <div className="btn-content">Close</div>
               </div>
+
               <div
                 type="submit"
                 className="btn float-end my-3"
-                onClick={handleShow}
+                onClick={handleEditLine}
               >
                 <div className="btn-content">Save Changes</div>
               </div>

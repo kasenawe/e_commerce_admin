@@ -26,7 +26,7 @@ function Products() {
     <Container fluid>
       <Row>
         {admin && (
-          <Col xs={12} md={2} lg={2}>
+          <Col xs={12} md={2} lg={2} className="fixed">
             <Sidemenu />
           </Col>
         )}

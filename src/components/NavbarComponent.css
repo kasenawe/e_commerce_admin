@@ -10,3 +10,13 @@
   text-decoration: none;
   cursor: pointer;
 }
+.navbar-component {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--color-black);
+}
+.login-button {
+  width: fit-content;
+}

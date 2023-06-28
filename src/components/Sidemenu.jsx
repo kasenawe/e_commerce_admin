@@ -7,7 +7,7 @@ function Sidemenu() {
 
   return (
     <>
-      <div className="sidebar ps-2">
+      <div className="sidebar">
         <div className="d-flex flex-column align-items-start  link-sidebar-zone">
           <div className="d-flex justify-content-center align-items-center">
             <div>
