@@ -3,9 +3,11 @@ import TableOrders from "../components/TableOrders";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux/es";
+import { Container, Row, Col } from "react-bootstrap";
+import Sidemenu from "../components/Sidemenu";
 
 function Orders() {
-  const loggedAdmin = useSelector((state) => state.admin);
+  const admin = useSelector((state) => state.admin);
   const [orders, setOrders] = useState([]);
   const [render, setRender] = useState(0);
 
@@ -15,7 +17,7 @@ function Orders() {
         `${import.meta.env.VITE_API_DOMAIN}/api/admin/orders`,
         {
           headers: {
-            Authorization: `Bearer ${loggedAdmin.token}`,
+            Authorization: `Bearer ${admin.token}`,
           },
         }
       );
@@ -26,12 +28,18 @@ function Orders() {
   }, [render]);
 
   return (
-    <>
-      <div className="text-center margin5">
-        <h1 className="mt-2 family-pinyon">Orders</h1>
-        <TableOrders orders={orders} render={render} setRender={setRender} />
-      </div>
-    </>
+    <Container fluid>
+      <Row>
+        {admin && (
+          <Col xs={12} md={2} lg={2}>
+            <Sidemenu />
+          </Col>
+        )}
+        <Col xs={12} md={10} lg={10}>
+          <TableOrders orders={orders} render={render} setRender={setRender} />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

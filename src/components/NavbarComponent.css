@@ -2,3 +2,11 @@
   font-family: Quicksand;
   letter-spacing: 2px;
 }
+
+.text-nabvar-brand {
+  font-family: Pinyon;
+  color: var(--color-white);
+  font-size: 2.5rem;
+  text-decoration: none;
+  cursor: pointer;
+}

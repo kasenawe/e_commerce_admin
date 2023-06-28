@@ -18,15 +18,19 @@ function NavbarComponent() {
   }
   return (
     <Navbar>
-      <Container>
+      <Container fluid>
         <div>
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center position-fixed">
             <small className=" font-quicksand color-red">
               {admin ? "Logged as:" + admin.username : "Not logged in"}
             </small>
           </div>
         </div>
-        <div>KRONOS ADMIN</div>
+        <Navbar.Brand>
+          <Link to="/" className="text-nabvar-brand">
+            Kairos Admin
+          </Link>
+        </Navbar.Brand>
         <div className="">
           {admin && (
             <Link className="btn" to="/login" onClick={handleLogout}>
@@ -35,6 +39,7 @@ function NavbarComponent() {
           )}
         </div>
       </Container>
+      <hr />
     </Navbar>
   );
 }

@@ -1,3 +1,4 @@
+import "./Login.css";
 import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -5,8 +6,6 @@ import { setToken } from "../redux/adminSlice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Tooltip } from "antd";
-
-import "./Login.css";
 
 function Login() {
   const admin = useSelector((state) => state.admin);

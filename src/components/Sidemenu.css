@@ -1,9 +1,12 @@
 .sidebar {
   min-height: 100vh !important;
   background-color: black;
-  margin-top: 40px;
 }
 
 .link-sidebar-zone {
   height: 100vh;
+}
+
+.link-activo-sidebar {
+  color: white;
 }
