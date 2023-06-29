@@ -3,8 +3,6 @@ import TableOrders from "../components/TableOrders";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux/es";
-import { Container, Row, Col } from "react-bootstrap";
-import Sidemenu from "../components/Sidemenu";
 
 function Orders() {
   const admin = useSelector((state) => state.admin);

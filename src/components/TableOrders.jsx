@@ -52,7 +52,7 @@ function TableOrders({ orders, render, setRender }) {
           ))}
         </tbody>
       ) : (
-        <div className="">
+        <div>
           <p className="my-0 mx-auto">No hay ordenes disponibles</p>
         </div>
       )}
