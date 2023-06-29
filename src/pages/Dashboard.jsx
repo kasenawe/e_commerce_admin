@@ -41,8 +41,10 @@ function Dashboard() {
 
   const calculateTotal = () => {
     let total = 0;
-    for (const order of orders) {
-      total += Number(order.totalPrice);
+    if (orders.length > 0) {
+      for (const order of orders) {
+        total += Number(order.totalPrice);
+      }
     }
     return total;
   };
@@ -180,7 +182,9 @@ function Dashboard() {
                     </div>
                     <div className="d-flex m-1 justify-content-center align-items-center">
                       <div className="d-flex flex-column text-center me-2">
-                        <p className="fs-5">{orders.length}</p>
+                        <p className="fs-5">
+                          {orders.length > 0 ? `${orders.length}` : 0}
+                        </p>
                       </div>
                       <div className=" d-flex flex-column text-center">
                         <div>

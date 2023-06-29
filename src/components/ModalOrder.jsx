@@ -139,7 +139,7 @@ function ModalOrder({ products, order, setRender, render }) {
             <div className="btn-content">Close</div>
           </div>
           <div className="btn float-end my-3" onClick={handleOnClick}>
-            <div className="btn-content">Imprimir</div>
+            <div className="btn-content">Print</div>
           </div>
           <div className="btn float-end my-3" onClick={handleSubmit}>
             <div className="btn-content">Save Changes</div>

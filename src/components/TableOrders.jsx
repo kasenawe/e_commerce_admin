@@ -30,7 +30,7 @@ function TableOrders({ orders, render, setRender }) {
           </th>
         </tr>
       </thead>
-      {orders.length > 0 ? (
+      {orders.length !== 0 ? (
         <tbody>
           {orders.map((order) => (
             <tr key={order.id}>
@@ -54,7 +54,7 @@ function TableOrders({ orders, render, setRender }) {
       ) : (
         <tbody>
           <tr className="my-0 mx-auto">
-            <td>No hay ordenes disponibles</td>
+            <td>There are not orders</td>
             <td></td>
             <td></td>
             <td></td>
