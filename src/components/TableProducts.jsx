@@ -26,41 +26,41 @@ function TableProducts({ products, render, setRender }) {
   };
 
   return (
-    <table className="border table table-dark table-hover text-center mt-3">
+    <table className="table table-dark table-hover text-center">
       <thead>
         <tr>
           <th scope="col" className="bg-header">
-            id
+            Id
           </th>
           <th scope="col" className="bg-header">
-            brand
+            Brand
           </th>
           <th scope="col" className="bg-header">
-            line
+            Line
           </th>
           <th scope="col" className="bg-header">
-            color
+            Color
           </th>
           <th scope="col" className="bg-header">
-            name
+            Name
           </th>
           <th scope="col" className="bg-header">
-            gender
+            Gender
           </th>
           <th scope="col" className="bg-header">
-            price
+            Price
           </th>
           <th scope="col" className="bg-header">
-            image
+            Image
           </th>
           <th scope="col" className="bg-header">
-            stock
+            Stock
           </th>
           <th scope="col" className="bg-header">
-            trending
+            Featured
           </th>
           <th scope="col" className="bg-header">
-            actions
+            Actions
           </th>
         </tr>
       </thead>
@@ -79,17 +79,16 @@ function TableProducts({ products, render, setRender }) {
             <td>{product.gender}</td>
             <td>{product.price}</td>
             <td>
-              <div className="" style={{ height: "100%" }}>
-                <img
-                  src={`${import.meta.env.VITE_API_DOMAIN}/img/products/${
-                    product.image[0]
-                  }`}
-                  alt="product-image"
-                />
-              </div>
+              <img
+                src={`${import.meta.env.VITE_API_DOMAIN}/img/products/${
+                  product.image[0]
+                }`}
+                className="img"
+                alt="product-image"
+              />
             </td>
             <td>{product.stock}</td>
-            <td>{product.trending ? "destacado" : "-"}</td>
+            <td>{product.trending ? "Yes" : "No"}</td>
             <td>
               <EditProduct
                 product={product}
@@ -99,7 +98,7 @@ function TableProducts({ products, render, setRender }) {
               <img
                 src="/img/trash_icon.svg"
                 alt="edit icon"
-                className="icon"
+                className="icon ms-4"
                 onClick={() => handleDelete(product)}
               />
             </td>

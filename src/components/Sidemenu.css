@@ -1,5 +1,7 @@
 .sidebar {
-  min-height: 100vh !important;
+  position: fixed;
+  left: calc(7rem+12px);
+  top: 6rem;
   background-color: black;
 }
 

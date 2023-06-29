@@ -122,7 +122,7 @@ function CreateLine({ render, setRender }) {
               <div
                 type="submit"
                 className="btn float-end my-3"
-                onClick={handleShow}
+                onClick={handleCreateLine}
               >
                 <div className="btn-content">Save Changes</div>
               </div>

@@ -132,7 +132,8 @@ body {
 }
 
 td,
-th {
+th,
+tr {
   text-align: center;
 }
 .general-padding {

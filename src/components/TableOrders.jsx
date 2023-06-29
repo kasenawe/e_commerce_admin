@@ -4,7 +4,7 @@ import ModalOrder from "./ModalOrder";
 
 function TableOrders({ orders, render, setRender }) {
   return (
-    <table className="border table table-dark table-hover text-center">
+    <table className="table table-dark table-hover text-center">
       <thead>
         <tr>
           <th scope="col" className="bg-header">

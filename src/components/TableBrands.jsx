@@ -22,7 +22,7 @@ function TableBrands() {
 
   return (
     <>
-      <table className="border table table-dark table-hover text-center">
+      <table className="table table-dark table-hover text-center">
         <thead>
           <tr>
             <th scope="col" className="bg-header">
@@ -46,7 +46,7 @@ function TableBrands() {
               <img
                 src="/img/trash_icon.svg"
                 alt="edit icon"
-                className="icon"
+                className="icon ms-4"
                 onClick={handleOnClick}
               />
             </td>
@@ -64,7 +64,7 @@ function TableBrands() {
               <img
                 src="/img/trash_icon.svg"
                 alt="edit icon"
-                className="icon"
+                className="icon ms-4"
                 onClick={handleOnClick}
               />
             </td>
@@ -82,7 +82,7 @@ function TableBrands() {
               <img
                 src="/img/trash_icon.svg"
                 alt="edit icon"
-                className="icon"
+                className="icon ms-4"
                 onClick={handleOnClick}
               />
             </td>
@@ -100,7 +100,7 @@ function TableBrands() {
               <img
                 src="/img/trash_icon.svg"
                 alt="edit icon"
-                className="icon"
+                className="icon ms-4"
                 onClick={handleOnClick}
               />
             </td>

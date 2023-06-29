@@ -1,9 +1,10 @@
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./ModalOrder.css";
 
@@ -14,6 +15,21 @@ function ModalOrder({ products, order, setRender, render }) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const notifyError = () =>
+    toast.error("Out of the scope of the project", {
+      position: "bottom-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  const handleOnClick = () => {
+    notifyError();
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -37,7 +53,7 @@ function ModalOrder({ products, order, setRender, render }) {
 
       <Modal show={show} onHide={handleClose} size={"xl"}>
         <Modal.Header closeButton closeVariant={"white"} className="modal-bg">
-          <Modal.Title>Order</Modal.Title>
+          <Modal.Title>Order ID: {order.id}</Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal-bg">
           <div className="d-flex justify-content-between mb-3">
@@ -51,7 +67,7 @@ function ModalOrder({ products, order, setRender, render }) {
             </div>
           </div>
 
-          <table className="border table table-dark table-hover text-center mt-4">
+          <table className="table table-dark table-hover text-center mt-4">
             <thead>
               <tr>
                 <th scope="col" className="bg-header">
@@ -92,8 +108,8 @@ function ModalOrder({ products, order, setRender, render }) {
 
                   <td>{product.gender}</td>
                   <td>{product.qty}</td>
-                  <td>{product.price}</td>
-                  <td>{product.price * product.qty}</td>
+                  <td>USD {product.price}</td>
+                  <td>USD {product.price * product.qty}</td>
                 </tr>
               ))}
             </tbody>
@@ -115,21 +131,22 @@ function ModalOrder({ products, order, setRender, render }) {
                 </Form.Select>
               </Form>
             </div>
-            <p className="my-auto">Total: {order.totalPrice}</p>
+            <p className="my-auto">Total: USD {order.totalPrice}</p>
           </div>
         </Modal.Body>
         <Modal.Footer className="modal-bg">
-          <div className="modal-btn" variant="secondary" onClick={handleClose}>
-            Close
+          <div className="btn float-end my-3" onClick={handleClose}>
+            <div className="btn-content">Close</div>
           </div>
-          <div className="modal-btn" variant="secondary">
-            Imprimir
+          <div className="btn float-end my-3" onClick={handleOnClick}>
+            <div className="btn-content">Imprimir</div>
           </div>
-          <div className="modal-btn" variant="primary" onClick={handleSubmit}>
-            Save Changes
+          <div className="btn float-end my-3" onClick={handleSubmit}>
+            <div className="btn-content">Save Changes</div>
           </div>
         </Modal.Footer>
       </Modal>
+      <ToastContainer />
     </>
   );
 }

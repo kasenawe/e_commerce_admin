@@ -2,7 +2,7 @@ import React from "react";
 
 function TableUsers() {
   return (
-    <table className="border table table-dark table-hover text-center">
+    <table className="table table-dark table-hover">
       <thead>
         <tr>
           <th scope="col" className="bg-header">
@@ -30,7 +30,11 @@ function TableUsers() {
           <td>mark@gmail.com</td>
           <td>
             <img src="/img/edit_icon.svg" alt="edit icon" className="icon" />
-            <img src="/img/trash_icon.svg" alt="edit icon" className="icon" />
+            <img
+              src="/img/trash_icon.svg"
+              alt="edit icon"
+              className="icon ms-4"
+            />
           </td>
         </tr>
       </tbody>

@@ -146,7 +146,7 @@ function CreateProduct({ render, setRender }) {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-dark">
-          <Form onSubmit={handleSubmit}>
+          <Form>
             <div className="row">
               <div className="col-12 col-sm-12 col-md-6">
                 <Form.Group>
@@ -322,12 +322,16 @@ function CreateProduct({ render, setRender }) {
             </div>
 
             <div className="d-flex gap-2 mt-3 justify-content-end">
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button type="submit" variant="primary">
-                Save Changes
-              </Button>
+              <div className="btn float-end my-3" onClick={handleClose}>
+                <div className="btn-content">Close</div>
+              </div>
+              <div
+                type="submit"
+                className="btn float-end my-3"
+                onClick={handleSubmit}
+              >
+                <div className="btn-content">Save Changes</div>
+              </div>
             </div>
           </Form>
         </Modal.Body>
