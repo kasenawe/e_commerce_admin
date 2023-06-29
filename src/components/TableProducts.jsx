@@ -18,7 +18,6 @@ function TableProducts({ products, render, setRender }) {
           Authorization: `Bearer ${loggedAdmin.token}`,
         },
       });
-      console.log("product deleted:", response.data);
       setRender(render + 1);
     } catch (error) {
       console.error("Error at product delete request:", error);

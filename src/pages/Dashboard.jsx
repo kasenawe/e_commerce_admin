@@ -40,8 +40,6 @@ function Dashboard() {
     getOrders();
   }, []);
 
-  console.log(visitors);
-
   const calculateTotal = () => {
     let total = 0;
     for (const order of orders) {

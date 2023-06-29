@@ -47,14 +47,16 @@ function TableOrders({ orders, render, setRender }) {
               <td>{order.status}</td>
               <td>{order.address}</td>
               <td>{order.createdAt.slice(0, 10)}</td>
-              <td>{order.totalPrice}</td>
+              <td>USD {order.totalPrice}</td>
             </tr>
           ))}
         </tbody>
       ) : (
-        <div>
-          <p className="my-0 mx-auto">No hay ordenes disponibles</p>
-        </div>
+        <tbody>
+          <tr className="my-0 mx-auto">
+            <td>No hay ordenes disponibles</td>
+          </tr>
+        </tbody>
       )}
     </table>
   );

@@ -112,7 +112,7 @@ function CreateProduct({ render, setRender }) {
 
     setRender(render + 1);
     handleClose();
-    return console.log("El producto se ha creado correctamente!");
+    return console.log("Product Created");
   }
 
   const handleChange = (e) => {
