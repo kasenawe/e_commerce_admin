@@ -55,6 +55,12 @@ function TableOrders({ orders, render, setRender }) {
         <tbody>
           <tr className="my-0 mx-auto">
             <td>No hay ordenes disponibles</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
         </tbody>
       )}
