@@ -74,7 +74,7 @@ function CreateLine({ render, setRender }) {
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton closeVariant="white" className="bg-dark">
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Create Line</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-dark">
           <Form onSubmit={(event) => handleCreateLine(event)}>

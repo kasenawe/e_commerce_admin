@@ -58,7 +58,7 @@ function CreateAdmin({ render, setRender }) {
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton className="bg-dark">
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Create Admin</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-dark">
           <Form onSubmit={handleCreateAdmin}>

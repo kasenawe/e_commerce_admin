@@ -49,7 +49,7 @@ function EditAdmin({ adminRow, render, setRender }) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton closeVariant="white" className="bg-dark">
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Edit Admin</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-dark">
           <Form onSubmit={(event) => handleEditAdmin(event)}>
