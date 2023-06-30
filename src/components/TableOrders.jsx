@@ -56,7 +56,12 @@ function TableOrders({ orders, render, setRender }) {
               </td>
               <td>{order.address}</td>
               <td>{order.createdAt.slice(0, 10)}</td>
-              <td>USD {order.totalPrice}</td>
+              <td>
+                USD
+                {setEarnings(
+                  new Intl.NumberFormat("de-DE").format(order.totalPrice)
+                )}
+              </td>
             </tr>
           ))}
         </tbody>
