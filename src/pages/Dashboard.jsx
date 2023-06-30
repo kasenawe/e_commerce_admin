@@ -176,7 +176,7 @@ function Dashboard() {
                       <p className="fs-5 m-0 p-1">Orders</p>
                       <img
                         src={ordersImg}
-                        alt="image-visitors-icon"
+                        alt="image-orders-icon"
                         style={{ height: "40px" }}
                       />
                       <hr className="m-2" />
