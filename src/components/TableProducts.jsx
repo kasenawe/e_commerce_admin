@@ -91,17 +91,19 @@ function TableProducts({ products, render, setRender }) {
             <td>{product.stock}</td>
             <td>{product.trending ? "Yes" : "No"}</td>
             <td>
-              <EditProduct
-                product={product}
-                render={render}
-                setRender={setRender}
-              />
-              <img
-                src="/img/trash_icon.svg"
-                alt="edit icon"
-                className="icon ms-4"
-                onClick={() => handleDelete(product)}
-              />
+              <div className="d-flex">
+                <EditProduct
+                  product={product}
+                  render={render}
+                  setRender={setRender}
+                />
+                <img
+                  src="/img/trash_icon.svg"
+                  alt="edit icon"
+                  className="icon ms-4"
+                  onClick={() => handleDelete(product)}
+                />
+              </div>
             </td>
           </tr>
         ))}
