@@ -51,7 +51,7 @@ function Dashboard() {
         total += Number(order.totalPrice);
       }
     }
-    return total;
+    return new Intl.NumberFormat("de-DE").format(total);
   };
 
   return (

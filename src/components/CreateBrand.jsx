@@ -36,8 +36,13 @@ function CreateBrand() {
 
   return (
     <>
-      <div className="btn float-end my-3" onClick={handleOnClick}>
-        <div className="btn-content">New Brand</div>
+      <div className=" w-100 mb-2" onClick={handleOnClick}>
+        <div className="d-flex  justify-content-between align-items-center">
+          <h5 className="p-0 m-0">Brands</h5>
+          <div className="btn">
+            <div className="btn-content">New Product</div>
+          </div>
+        </div>
       </div>
 
       <ToastContainer />

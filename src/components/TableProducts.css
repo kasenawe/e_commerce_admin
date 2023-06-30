@@ -8,3 +8,9 @@
   background-color: var(--color-grey-header) !important;
   color: black !important;
 }
+
+.title-tables {
+  position: relative;
+  top: 0px;
+  bottom: 0px;
+}

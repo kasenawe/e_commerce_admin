@@ -53,8 +53,13 @@ function CreateAdmin({ render, setRender }) {
   }
   return (
     <>
-      <div className="btn float-end my-3" onClick={handleShow}>
-        <div className="btn-content"> New Admin</div>
+      <div className=" w-100 mb-2" onClick={handleShow}>
+        <div className="d-flex  justify-content-between align-items-center">
+          <h5 className="p-0 m-0">Admins</h5>
+          <div className="btn">
+            <div className="btn-content">New Product</div>
+          </div>
+        </div>
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton className="bg-dark">
