@@ -66,7 +66,7 @@ function Dashboard() {
                     <div className="text-center m-1">
                       <p className="fs-5 m-0 p-1">Sales</p>
                       <img
-                        src="../src/assets/7898461_sales_business_finance_office_marketing_icon.svg"
+                        src="https://kairoswatches-admin.vercel.app/src/assets/7898461_sales_business_finance_office_marketing_icon.svg"
                         alt="image-sales-icon"
                         style={{ height: "40px" }}
                       />
@@ -104,8 +104,8 @@ function Dashboard() {
                     <div className="text-center m-1">
                       <p className="fs-5 m-0 p-1">Earnings</p>
                       <img
-                        src="../src/assets/1737376_dollar_money_sign_icon.svg"
-                        alt="image-sales-icon"
+                        src="https://kairoswatches-admin.vercel.app/src/assets/1737376_dollar_money_sign_icon.svg"
+                        alt="image-earnings-icon"
                         style={{ height: "40px" }}
                       />
                       <hr className="m-2" />
