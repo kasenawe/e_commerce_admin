@@ -21,7 +21,7 @@ function Login() {
     try {
       const response = await axios({
         method: "POST",
-        url: `${import.meta.env.VITE_API_DOMAIN}/adm/login`,
+        url: `${import.meta.env.VITE_API_DOMAIN}adm/login`,
         data: {
           username: usernameValue,
           password: passwordValue,
