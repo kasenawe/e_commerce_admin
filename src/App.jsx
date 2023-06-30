@@ -15,7 +15,6 @@ import Orders from "./pages/Orders";
 import Admins from "./pages/Admins";
 import Users from "./pages/Users";
 import Login from "./pages/Login";
-import Sidemenu from "./components/Sidemenu";
 
 import "./App.css";
 
