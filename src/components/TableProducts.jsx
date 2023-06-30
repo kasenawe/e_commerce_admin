@@ -5,6 +5,7 @@ import EditProduct from "./EditProduct";
 import { useSelector } from "react-redux";
 
 function TableProducts({ products, render, setRender }) {
+  console.log(products);
   const loggedAdmin = useSelector((state) => state.admin);
 
   const handleDelete = async (product) => {
@@ -79,9 +80,11 @@ function TableProducts({ products, render, setRender }) {
             <td>{product.price}</td>
             <td>
               <img
-                src={`${import.meta.env.VITE_API_DOMAIN}/img/products/${
+                //src={`${import.meta.env.SUPABASE_DB_URL}${product.image[0]}`}
+                src={
+                  import.meta.env.VITE_SUPABASE_PRODUCTS_IMG_URL +
                   product.image[0]
-                }`}
+                }
                 className="img"
                 alt="product-image"
               />
