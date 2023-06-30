@@ -40,7 +40,7 @@ function CreateBrand() {
         <div className="d-flex  justify-content-between align-items-center">
           <h5 className="p-0 m-0">Brands</h5>
           <div className="btn">
-            <div className="btn-content">New Product</div>
+            <div className="btn-content">New Brand</div>
           </div>
         </div>
       </div>
