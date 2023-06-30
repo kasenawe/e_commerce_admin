@@ -44,7 +44,7 @@ function EditProduct({ product, render, setRender }) {
         method: "GET",
         url: `${
           import.meta.env.VITE_API_DOMAIN
-        }/lines?filterBrand=${filterLine}`,
+        }lines?filterBrand=${filterLine}`,
         headers: {
           Authorization: `Bearer ${loggedAdmin.token}`,
         },

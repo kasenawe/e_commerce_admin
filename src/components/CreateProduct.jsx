@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Form } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
 
@@ -40,7 +39,7 @@ function CreateProduct({ render, setRender }) {
         method: "GET",
         url: `${
           import.meta.env.VITE_API_DOMAIN
-        }/lines?filterBrand=${filterLine}`,
+        }lines?filterBrand=${filterLine}`,
         headers: {
           Authorization: `Bearer ${loggedAdmin.token}`,
         },

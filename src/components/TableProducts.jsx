@@ -5,7 +5,6 @@ import EditProduct from "./EditProduct";
 import { useSelector } from "react-redux";
 
 function TableProducts({ products, render, setRender }) {
-  console.log(products);
   const loggedAdmin = useSelector((state) => state.admin);
 
   const handleDelete = async (product) => {

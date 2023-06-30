@@ -2,11 +2,11 @@ import React from "react";
 
 import ModalOrder from "./ModalOrder";
 
-const statusDictionary = {
-  pending: "#ffff00",
-  unpaid: "#ff0000",
-  sent: "#ffa500",
-  delivered: "#008000",
+const statusColorDictionary = {
+  Pending: "#ffff00",
+  UnPaid: "#ff0000",
+  Sent: "#ffa500",
+  Delivered: "#008000",
 };
 
 function TableOrders({ orders, render, setRender }) {
@@ -51,7 +51,11 @@ function TableOrders({ orders, render, setRender }) {
                   render={render}
                 />
               </td>
-              <td style={{ backgroundColor: statusDictionary[order.status] }}>
+              <td
+                style={{
+                  color: statusColorDictionary[order.status],
+                }}
+              >
                 {order.status}
               </td>
               <td>{order.address}</td>

@@ -19,7 +19,7 @@ function Orders() {
           },
         }
       );
-      console.log(response.data);
+
       setOrders(response.data);
     };
 
