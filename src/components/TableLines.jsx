@@ -27,7 +27,7 @@ function TableLines({ render, setRender }) {
     const deleteLine = async () => {
       try {
         await axios.delete(
-          `${import.meta.env.VITE_API_DOMAIN}/api/admin/line/${line.id}`,
+          `${import.meta.env.VITE_API_DOMAIN}api/admin/line/${line.id}`,
           {
             headers: {
               Authorization: `Bearer ${loggedAdmin.token}`,
@@ -47,7 +47,7 @@ function TableLines({ render, setRender }) {
     const getLines = async () => {
       const response = await axios({
         method: "GET",
-        url: `${import.meta.env.VITE_API_DOMAIN}/lines`,
+        url: `${import.meta.env.VITE_API_DOMAIN}lines`,
       });
       setLines([...response.data]);
     };

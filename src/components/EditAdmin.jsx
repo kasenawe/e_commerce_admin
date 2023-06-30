@@ -21,7 +21,7 @@ function EditAdmin({ adminRow, render, setRender }) {
     event.preventDefault();
     await axios({
       method: "PATCH",
-      url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/${adminRow.username}`,
+      url: `${import.meta.env.VITE_API_DOMAIN}api/admin/${adminRow.username}`,
       data: {
         firstname: firstnameValue,
         lastname: lastnameValue,

@@ -21,7 +21,7 @@ function EditLine({ line, render, setRender }) {
     const getBrands = async () => {
       const response = await axios({
         method: "GET",
-        url: `${import.meta.env.VITE_API_DOMAIN}/brands`,
+        url: `${import.meta.env.VITE_API_DOMAIN}brands`,
       });
       setBrands(response.data);
     };
@@ -43,7 +43,7 @@ function EditLine({ line, render, setRender }) {
 
     await axios({
       method: "PATCH",
-      url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/line/${line.id}`,
+      url: `${import.meta.env.VITE_API_DOMAIN}api/admin/line/${line.id}`,
       data: formData,
       headers: {
         "Content-Type": "multipart/form-data",

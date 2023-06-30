@@ -23,7 +23,7 @@ function CreateLine({ render, setRender }) {
     const getBrands = async () => {
       const response = await axios({
         method: "GET",
-        url: `${import.meta.env.VITE_API_DOMAIN}/brands`,
+        url: `${import.meta.env.VITE_API_DOMAIN}brands`,
       });
       setBrands(response.data);
     };
@@ -55,7 +55,7 @@ function CreateLine({ render, setRender }) {
     }
     await axios({
       method: "POST",
-      url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/line`,
+      url: `${import.meta.env.VITE_API_DOMAIN}api/admin/line`,
       data: formData,
       headers: {
         "Content-Type": "multipart/form-data",
