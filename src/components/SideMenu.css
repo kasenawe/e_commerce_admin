@@ -1,0 +1,14 @@
+.sidebar {
+  position: fixed;
+  left: calc(7rem+12px);
+  top: 6rem;
+  background-color: black;
+}
+
+.link-sidebar-zone {
+  height: 100vh;
+}
+
+.link-activo-sidebar {
+  color: white;
+}

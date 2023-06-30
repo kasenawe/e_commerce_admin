@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Container, Row, Col } from "react-bootstrap";
-import "../src/components/SideMenu.css";
+import "./components/SideMenu.css";
 import { useSelector } from "react-redux";
 
 import NavbarComponent from "./components/NavbarComponent";
