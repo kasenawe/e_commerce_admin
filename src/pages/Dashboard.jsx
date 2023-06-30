@@ -6,7 +6,10 @@ import Sidemenu from "../components/Sidemenu";
 import Orders from "./Orders";
 import axios from "axios";
 
+import salesImg from "../assets/7898461_sales_business_finance_office_marketing_icon.svg";
+import earningsImg from "../assets/1737376_dollar_money_sign_icon.svg";
 import visitorsImg from "../assets/8675239_ic_fluent_people_team_regular_icon.svg";
+import ordersImg from "../assets/9025885_shopping_cart_icon.svg";
 
 function Dashboard() {
   const admin = useSelector((state) => state.admin);
@@ -67,11 +70,7 @@ function Dashboard() {
                   <div className="bg-dark p-2 card-dash shadow ">
                     <div className="text-center m-1">
                       <p className="fs-5 m-0 p-1">Sales</p>
-                      <img
-                        src="https://kairoswatches-admin.vercel.app/src/assets/7898461_sales_business_finance_office_marketing_icon.svg"
-                        alt="image-sales-icon"
-                        style={{ height: "40px" }}
-                      />
+                      <img src={salesImg} style={{ height: "40px" }} />
                       <hr className="m-2" />
                     </div>
                     <div className="d-flex m-1 justify-content-center align-items-center">
@@ -106,7 +105,7 @@ function Dashboard() {
                     <div className="text-center m-1">
                       <p className="fs-5 m-0 p-1">Earnings</p>
                       <img
-                        src="https://kairoswatches-admin.vercel.app/src/assets/1737376_dollar_money_sign_icon.svg"
+                        src={earningsImg}
                         alt="image-earnings-icon"
                         style={{ height: "40px" }}
                       />
@@ -176,7 +175,7 @@ function Dashboard() {
                     <div className="text-center m-1">
                       <p className="fs-5 m-0 p-1">Orders</p>
                       <img
-                        src="../assets/9025885_shopping_cart_icon.svg"
+                        src={ordersImg}
                         alt="image-visitors-icon"
                         style={{ height: "40px" }}
                       />
