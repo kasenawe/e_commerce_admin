@@ -6,6 +6,11 @@ import Sidemenu from "../components/Sidemenu";
 import Orders from "./Orders";
 import axios from "axios";
 
+import salesImg from "../assets/7898461_sales_business_finance_office_marketing_icon.svg";
+import earningsImg from "../assets/1737376_dollar_money_sign_icon.svg";
+import visitorsImg from "../assets/8675239_ic_fluent_people_team_regular_icon.svg";
+import ordersImg from "../assets/9025885_shopping_cart_icon.svg";
+
 function Dashboard() {
   const admin = useSelector((state) => state.admin);
   const [orders, setOrders] = useState([]);
@@ -24,7 +29,7 @@ function Dashboard() {
   useEffect(() => {
     const getOrders = async () => {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_DOMAIN}/api/admin/orders`,
+        `${import.meta.env.VITE_API_DOMAIN}api/admin/orders`,
         {
           headers: {
             Authorization: `Bearer ${admin.token}`,
@@ -41,8 +46,10 @@ function Dashboard() {
 
   const calculateTotal = () => {
     let total = 0;
-    for (const order of orders) {
-      total += Number(order.totalPrice);
+    if (orders.length > 0) {
+      for (const order of orders) {
+        total += Number(order.totalPrice);
+      }
     }
     return total;
   };
@@ -63,11 +70,7 @@ function Dashboard() {
                   <div className="bg-dark p-2 card-dash shadow ">
                     <div className="text-center m-1">
                       <p className="fs-5 m-0 p-1">Sales</p>
-                      <img
-                        src="../src/assets/7898461_sales_business_finance_office_marketing_icon.svg"
-                        alt="image-sales-icon"
-                        style={{ height: "40px" }}
-                      />
+                      <img src={salesImg} style={{ height: "40px" }} />
                       <hr className="m-2" />
                     </div>
                     <div className="d-flex m-1 justify-content-center align-items-center">
@@ -102,8 +105,8 @@ function Dashboard() {
                     <div className="text-center m-1">
                       <p className="fs-5 m-0 p-1">Earnings</p>
                       <img
-                        src="../src/assets/1737376_dollar_money_sign_icon.svg"
-                        alt="image-sales-icon"
+                        src={earningsImg}
+                        alt="image-earnings-icon"
                         style={{ height: "40px" }}
                       />
                       <hr className="m-2" />
@@ -140,7 +143,7 @@ function Dashboard() {
                     <div className="text-center m-1">
                       <p className="fs-5 m-0 p-1">Visitors</p>
                       <img
-                        src="../src/assets/8675239_ic_fluent_people_team_regular_icon.svg"
+                        src={visitorsImg}
                         alt="image-visitors-icon"
                         style={{ height: "40px" }}
                       />
@@ -172,7 +175,7 @@ function Dashboard() {
                     <div className="text-center m-1">
                       <p className="fs-5 m-0 p-1">Orders</p>
                       <img
-                        src="../src/assets/9025885_shopping_cart_icon.svg"
+                        src={ordersImg}
                         alt="image-visitors-icon"
                         style={{ height: "40px" }}
                       />
@@ -180,7 +183,9 @@ function Dashboard() {
                     </div>
                     <div className="d-flex m-1 justify-content-center align-items-center">
                       <div className="d-flex flex-column text-center me-2">
-                        <p className="fs-5">{orders.length}</p>
+                        <p className="fs-5">
+                          {orders.length > 0 ? `${orders.length}` : 0}
+                        </p>
                       </div>
                       <div className=" d-flex flex-column text-center">
                         <div>

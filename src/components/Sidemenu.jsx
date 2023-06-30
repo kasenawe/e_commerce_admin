@@ -1,5 +1,5 @@
-import "./Sidemenu.css";
 import { Link, useLocation } from "react-router-dom";
+import "./SideMenu.css";
 
 function Sidemenu() {
   const location = useLocation();

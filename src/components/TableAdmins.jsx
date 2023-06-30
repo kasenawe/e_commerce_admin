@@ -28,7 +28,7 @@ function TableAdmins({ render, setRender }) {
     const getAdmins = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_DOMAIN}/api/admin/admins`,
+          `${import.meta.env.VITE_API_DOMAIN}api/admin/admins`,
           {
             headers: {
               Authorization: `Bearer ${loggedAdmin.token}`,
@@ -48,7 +48,7 @@ function TableAdmins({ render, setRender }) {
     const deleteAdmin = async (username) => {
       try {
         await axios.delete(
-          `${import.meta.env.VITE_API_DOMAIN}/api/admin/${username}`,
+          `${import.meta.env.VITE_API_DOMAIN}api/admin/${username}`,
           {
             headers: {
               Authorization: `Bearer ${loggedAdmin.token}`,

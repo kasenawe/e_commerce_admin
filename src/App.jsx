@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Container, Row, Col } from "react-bootstrap";
-import "../src/components/SideMenu.css";
+import "./components/SideMenu.css";
 import { useSelector } from "react-redux";
 
 import NavbarComponent from "./components/NavbarComponent";
@@ -15,7 +15,6 @@ import Orders from "./pages/Orders";
 import Admins from "./pages/Admins";
 import Users from "./pages/Users";
 import Login from "./pages/Login";
-import Sidemenu from "./components/Sidemenu";
 
 import "./App.css";
 

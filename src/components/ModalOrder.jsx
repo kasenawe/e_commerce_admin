@@ -35,7 +35,7 @@ function ModalOrder({ products, order, setRender, render }) {
     event.preventDefault();
     await axios({
       method: "PATCH",
-      url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/order/${order.id}`,
+      url: `${import.meta.env.VITE_API_DOMAIN}api/admin/order/${order.id}`,
       data: { status },
       headers: {
         Authorization: `Bearer ${loggedAdmin.token}`,
@@ -139,7 +139,7 @@ function ModalOrder({ products, order, setRender, render }) {
             <div className="btn-content">Close</div>
           </div>
           <div className="btn float-end my-3" onClick={handleOnClick}>
-            <div className="btn-content">Imprimir</div>
+            <div className="btn-content">Print</div>
           </div>
           <div className="btn float-end my-3" onClick={handleSubmit}>
             <div className="btn-content">Save Changes</div>

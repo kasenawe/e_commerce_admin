@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Form, Modal } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -23,7 +23,7 @@ function CreateLine({ render, setRender }) {
     const getBrands = async () => {
       const response = await axios({
         method: "GET",
-        url: `${import.meta.env.VITE_API_DOMAIN}/brands`,
+        url: `${import.meta.env.VITE_API_DOMAIN}brands`,
       });
       setBrands(response.data);
     };
@@ -55,7 +55,7 @@ function CreateLine({ render, setRender }) {
     }
     await axios({
       method: "POST",
-      url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/line`,
+      url: `${import.meta.env.VITE_API_DOMAIN}api/admin/line`,
       data: formData,
       headers: {
         "Content-Type": "multipart/form-data",
@@ -74,7 +74,7 @@ function CreateLine({ render, setRender }) {
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton closeVariant="white" className="bg-dark">
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Create Line</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-dark">
           <Form onSubmit={(event) => handleCreateLine(event)}>

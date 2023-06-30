@@ -27,7 +27,7 @@ function EditProduct({ product, render, setRender }) {
     const getBrands = async () => {
       const response = await axios({
         method: "GET",
-        url: `${import.meta.env.VITE_API_DOMAIN}/brands`,
+        url: `${import.meta.env.VITE_API_DOMAIN}brands`,
         headers: {
           Authorization: `Bearer ${loggedAdmin.token}`,
         },
@@ -58,7 +58,7 @@ function EditProduct({ product, render, setRender }) {
     const getColors = async () => {
       const response = await axios({
         method: "GET",
-        url: `${import.meta.env.VITE_API_DOMAIN}/colors`,
+        url: `${import.meta.env.VITE_API_DOMAIN}colors`,
         headers: {
           Authorization: `Bearer ${loggedAdmin.token}`,
         },
@@ -106,7 +106,7 @@ function EditProduct({ product, render, setRender }) {
 
     await axios({
       method: "PATCH",
-      url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/product/${product.id}`,
+      url: `${import.meta.env.VITE_API_DOMAIN}api/admin/product/${product.id}`,
       data: formData,
       headers: {
         "content-type": "multipart/form-data",

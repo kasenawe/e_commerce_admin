@@ -23,7 +23,7 @@ function CreateProduct({ render, setRender }) {
     const getBrands = async () => {
       const response = await axios({
         method: "GET",
-        url: `${import.meta.env.VITE_API_DOMAIN}/brands`,
+        url: `${import.meta.env.VITE_API_DOMAIN}brands`,
         headers: {
           Authorization: `Bearer ${loggedAdmin.token}`,
         },
@@ -54,7 +54,7 @@ function CreateProduct({ render, setRender }) {
     const getColors = async () => {
       const response = await axios({
         method: "GET",
-        url: `${import.meta.env.VITE_API_DOMAIN}/colors`,
+        url: `${import.meta.env.VITE_API_DOMAIN}colors`,
         headers: {
           Authorization: `Bearer ${loggedAdmin.token}`,
         },
@@ -102,7 +102,7 @@ function CreateProduct({ render, setRender }) {
 
     await axios({
       method: "POST",
-      url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/product`,
+      url: `${import.meta.env.VITE_API_DOMAIN}api/admin/product`,
       data: formData,
       headers: {
         "content-type": "multipart/form-data",
@@ -143,7 +143,7 @@ function CreateProduct({ render, setRender }) {
       </div>
       <Modal show={show} onHide={handleClose} className="modal-xl">
         <Modal.Header closeButton closeVariant="white" className="bg-dark">
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Create Product</Modal.Title>
         </Modal.Header>
         <Modal.Body className="bg-dark">
           <Form>

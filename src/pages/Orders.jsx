@@ -12,13 +12,14 @@ function Orders() {
   useEffect(() => {
     const getOrders = async () => {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_DOMAIN}/api/admin/orders`,
+        `${import.meta.env.VITE_API_DOMAIN}api/admin/orders`,
         {
           headers: {
             Authorization: `Bearer ${admin.token}`,
           },
         }
       );
+      console.log(response.data);
       setOrders(response.data);
     };
 
