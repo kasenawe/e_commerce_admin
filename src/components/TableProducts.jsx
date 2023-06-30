@@ -12,7 +12,7 @@ function TableProducts({ products, render, setRender }) {
     try {
       const response = await axios({
         method: "DELETE",
-        url: `${import.meta.env.VITE_API_DOMAIN}/api/admin/product/${
+        url: `${import.meta.env.VITE_API_DOMAIN}api/admin/product/${
           product.id
         }`,
         headers: {

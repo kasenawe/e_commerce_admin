@@ -22,7 +22,7 @@ function TableColors() {
   useEffect(() => {
     const getColors = async () => {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_DOMAIN}/colors`
+        `${import.meta.env.VITE_API_DOMAIN}colors`
       );
       setColors(response.data);
     };
