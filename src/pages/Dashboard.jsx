@@ -6,6 +6,8 @@ import Sidemenu from "../components/Sidemenu";
 import Orders from "./Orders";
 import axios from "axios";
 
+import visitorsImg from "../assets/8675239_ic_fluent_people_team_regular_icon.svg";
+
 function Dashboard() {
   const admin = useSelector((state) => state.admin);
   const [orders, setOrders] = useState([]);
@@ -142,7 +144,7 @@ function Dashboard() {
                     <div className="text-center m-1">
                       <p className="fs-5 m-0 p-1">Visitors</p>
                       <img
-                        src="../src/assets/8675239_ic_fluent_people_team_regular_icon.svg"
+                        src={visitorsImg}
                         alt="image-visitors-icon"
                         style={{ height: "40px" }}
                       />
@@ -174,7 +176,7 @@ function Dashboard() {
                     <div className="text-center m-1">
                       <p className="fs-5 m-0 p-1">Orders</p>
                       <img
-                        src="../src/assets/9025885_shopping_cart_icon.svg"
+                        src="../assets/9025885_shopping_cart_icon.svg"
                         alt="image-visitors-icon"
                         style={{ height: "40px" }}
                       />
