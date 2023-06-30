@@ -2,6 +2,13 @@ import React from "react";
 
 import ModalOrder from "./ModalOrder";
 
+const statusDictionary = {
+  pending: "#ffff00",
+  unpaid: "#ff0000",
+  sent: "#ffa500",
+  delivered: "#008000",
+};
+
 function TableOrders({ orders, render, setRender }) {
   return (
     <table className="table table-dark table-hover text-center">
@@ -44,10 +51,14 @@ function TableOrders({ orders, render, setRender }) {
                   render={render}
                 />
               </td>
-              <td>{order.status}</td>
+              <td style={{ backgroundColor: statusDictionary[order.status] }}>
+                {order.status}
+              </td>
               <td>{order.address}</td>
               <td>{order.createdAt.slice(0, 10)}</td>
-              <td>USD {order.totalPrice}</td>
+              <td>
+                USD {new Intl.NumberFormat("de-DE").format(order.totalPrice)}
+              </td>
             </tr>
           ))}
         </tbody>
