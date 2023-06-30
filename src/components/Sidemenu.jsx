@@ -1,7 +1,6 @@
-import "./SideMenu.css";
 import { Link, useLocation } from "react-router-dom";
 
-function Sideenu() {
+function Sidemenu() {
   const location = useLocation();
   const currentView = location.pathname; // Obtener la ruta actual
 
