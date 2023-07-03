@@ -12,7 +12,7 @@ function TableLines({ render, setRender }) {
   let brandSlug = "";
 
   const notifyRemove = () =>
-    toast.error("Line deleted", {
+    toast.success("Line deleted", {
       position: "bottom-left",
       autoClose: 3000,
       hideProgressBar: false,

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function EditLine({ line, render, setRender }) {
   const [show, setShow] = useState(false);
@@ -16,6 +18,18 @@ function EditLine({ line, render, setRender }) {
   const [brandValue, setBrand] = useState(line.brand.name);
   const [descriptionValue, setDescription] = useState(line.description);
   const [imagesValue, setImages] = useState(line.images || []);
+
+  const notifyUpdated = () =>
+    toast.success(`Line updated`, {
+      position: "bottom-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
 
   useEffect(() => {
     const getBrands = async () => {
@@ -50,7 +64,7 @@ function EditLine({ line, render, setRender }) {
         Authorization: "Bearer " + admin.token,
       },
     });
-
+    notifyUpdated();
     setRender(render + 1);
     return handleClose();
   };
@@ -122,6 +136,7 @@ function EditLine({ line, render, setRender }) {
           </Form>
         </Modal.Body>
       </Modal>
+      <ToastContainer />
     </>
   );
 }

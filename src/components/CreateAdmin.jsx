@@ -54,10 +54,13 @@ function CreateAdmin({ render, setRender }) {
   return (
     <>
       <div className=" w-100 mb-2" onClick={handleShow}>
-        <div className="d-flex  justify-content-between align-items-center">
+        <div className="d-flex justify-content-between align-items-center mt-2">
           <h5 className="p-0 m-0">Admins</h5>
-          <div className="btn">
-            <div className="btn-content">New Admin</div>
+          <div>
+            <i
+              className="bi bi-plus-square-fill fs-2 me-3 btn-hover"
+              type="button"
+            ></i>
           </div>
         </div>
       </div>

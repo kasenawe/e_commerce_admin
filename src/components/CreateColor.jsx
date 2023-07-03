@@ -26,10 +26,13 @@ function CreateColor() {
   return (
     <>
       <div className=" w-100 mb-2" onClick={handleOnClick}>
-        <div className="d-flex  justify-content-between align-items-center">
-          <h5 className="p-0 m-0">Colors</h5>
-          <div className="btn">
-            <div className="btn-content">New Color</div>
+        <div className="d-flex justify-content-between align-items-center mt-2">
+          <h5 className="p-0 m-0">Color List</h5>
+          <div>
+            <i
+              className="bi bi-plus-square-fill fs-2 me-3 btn-hover"
+              type="button"
+            ></i>
           </div>
         </div>
       </div>

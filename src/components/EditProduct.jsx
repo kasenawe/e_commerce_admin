@@ -5,6 +5,8 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function EditProduct({ product, render, setRender }) {
   const loggedAdmin = useSelector((state) => state.admin);
@@ -13,13 +15,30 @@ function EditProduct({ product, render, setRender }) {
   const [brands, setBrands] = useState([]);
   const [lines, setLines] = useState([]);
   const [filterLine, setFilterLine] = useState("");
-  const [newColors, setNewColors] = useState([]);
+  const [newColors, setNewColors] = useState(
+    product.color.map((color) => color.id)
+  );
   const [newColorsNames, setNewColorsNames] = useState([]);
   const [allColors, setAllColors] = useState([]);
   const [tempColors, setTempColors] = useState([]);
 
+  const notifyUpdated = () =>
+    toast.success(`Product updated`, {
+      position: "bottom-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+
   const handleClose = () => setShow(false);
+
   const handleShow = async () => {
+    setNewColorsNames(product.color.map((color) => color.name));
+
     setShow(true);
   };
 
@@ -113,7 +132,7 @@ function EditProduct({ product, render, setRender }) {
         Authorization: `Bearer ${loggedAdmin.token}`,
       },
     });
-
+    notifyUpdated();
     handleClose();
     setRender(render + 1);
   }
@@ -369,6 +388,7 @@ function EditProduct({ product, render, setRender }) {
           </Modal.Body>
         </Modal>
       )}
+      <ToastContainer />
     </>
   );
 }

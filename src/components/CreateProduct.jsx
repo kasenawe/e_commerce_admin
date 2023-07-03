@@ -3,6 +3,7 @@ import axios from "axios";
 import { Form } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
+import "./CreateProduct.css";
 
 function CreateProduct({ render, setRender }) {
   const loggedAdmin = useSelector((state) => state.admin);
@@ -138,10 +139,13 @@ function CreateProduct({ render, setRender }) {
   return (
     <>
       <div className=" w-100 mb-2" onClick={handleShow}>
-        <div className="d-flex  justify-content-between align-items-center">
+        <div className="d-flex justify-content-between align-items-center mt-2">
           <h5 className="p-0 m-0">Product List</h5>
-          <div className="btn">
-            <div className="btn-content">New Product</div>
+          <div>
+            <i
+              className="bi bi-plus-square-fill fs-2 me-3 btn-hover"
+              type="button"
+            ></i>
           </div>
         </div>
       </div>
