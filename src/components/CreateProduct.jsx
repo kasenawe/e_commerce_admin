@@ -3,7 +3,9 @@ import axios from "axios";
 import { Form } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 import "./CreateProduct.css";
+import "react-toastify/dist/ReactToastify.css";
 
 function CreateProduct({ render, setRender }) {
   const loggedAdmin = useSelector((state) => state.admin);
@@ -15,6 +17,18 @@ function CreateProduct({ render, setRender }) {
   const [newColorsNames, setNewColorsNames] = useState([]);
   const [allColors, setAllColors] = useState([]);
   const [tempColors, setTempColors] = useState([]);
+
+  const notifyAdded = () =>
+    toast.success(`Product added`, {
+      position: "bottom-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -109,9 +123,9 @@ function CreateProduct({ render, setRender }) {
         Authorization: `Bearer ${loggedAdmin.token}`,
       },
     });
-
-    setRender(render + 1);
+    notifyAdded();
     handleClose();
+    setRender(render + 1);
     return console.log("Product Created");
   }
 
@@ -344,6 +358,7 @@ function CreateProduct({ render, setRender }) {
           </Form>
         </Modal.Body>
       </Modal>
+      <ToastContainer />
     </>
   );
 }
